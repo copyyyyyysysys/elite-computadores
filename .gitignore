@@ -1,0 +1,19 @@
+# Configurações Locais e IDEs
+.agents/
+.gemini/
+.vscode/
+.idea/
+
+# Documentos Internos / Briefings
+segundo cerebro/
+DESIGN.md
+
+# Sistema e Logs
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+.env.development
+.env.production
