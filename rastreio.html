@@ -4,14 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rastrear Pedido — Elite Computadores</title>
-  <meta name="description" content="Acompanhe a montagem, testes de estresse e envio do seu PC Gamer Elite em tempo real. Digite seu código de rastreamento.">
-  <link rel="stylesheet" href="style.css?v=4.7">
+  <meta name="description" content="Acompanhe a montagem, testes de estresse de 12h e envio do seu computador Elite em tempo real.">
+  <link rel="stylesheet" href="style.css?v=2026.1">
 </head>
-<body>
-
-  <!-- Ambient background glow elements -->
-  <div class="ambient-glow"></div>
-  <div class="ambient-glow-bottom"></div>
+<body class="blueprint-grid-bg">
 
   <!-- Header -->
   <header class="main-header">
@@ -20,7 +16,7 @@
       
       <!-- Busca Centralizada (Desktop) / Linha própria (Mobile) -->
       <div class="header-search">
-        <input type="text" id="header-search-input" placeholder="Buscar categoria ou componente de hardware..." aria-label="Buscar categorias">
+        <input type="text" id="header-search-input" placeholder="Buscar categoria ou hardware..." aria-label="Buscar categorias">
         <button class="header-search-btn" id="header-search-submit" aria-label="Buscar">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
@@ -40,7 +36,7 @@
       <div class="header-actions">
         <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="btn-laser header-wa-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
-          <span>Consultoria</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </div>
@@ -55,8 +51,7 @@
           <a href="catalogo.html?filter=motherboards" class="cat-chip">Placas-Mãe</a>
           <a href="catalogo.html?filter=ram" class="cat-chip">Memórias</a>
           <a href="catalogo.html?filter=storage" class="cat-chip">Armazenamento</a>
-          <a href="catalogo.html?filter=power" class="cat-chip">Fontes</a>
-          <a href="catalogo.html?filter=cases" class="cat-chip">Gabinetes</a>
+          <a href="catalogo.html?filter=cases" class="cat-chip">Fontes & Gabinetes</a>
           <a href="catalogo.html?filter=cooling" class="cat-chip">Refrigeração</a>
           <a href="catalogo.html?filter=monitors" class="cat-chip">Monitores</a>
           <a href="catalogo.html?filter=perifericos" class="cat-chip">Periféricos</a>
@@ -66,99 +61,87 @@
   </header>
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" style="padding-top: 40px;">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header" style="text-align: center;">
         <span class="kicker kicker-badge">Transparência Etapa por Etapa</span>
-        <h1 class="h2-headline glow-text">Rastrear Pedido</h1>
-        <p class="section-subtitle">Acompanhe a montagem, os testes de stress de 12h e o envio da sua máquina em tempo real.</p>
+        <h1 class="h2-headline">Rastrear Pedido</h1>
+        <p class="section-subtitle" style="margin: 0 auto;">Acompanhe a montagem, os testes de stress de 12h e o envio da sua máquina em tempo real.</p>
       </div>
     </div>
   </section>
 
   <!-- Tracker Section -->
-  <section class="tracker-section">
-    <div class="container">
-      <div class="tracker-container">
-        
-        <!-- Input Box -->
-        <div class="tracker-box reveal-item">
-          <span class="kicker" style="margin-bottom: 8px;">Código de Rastreamento</span>
-          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Digite o código de pedido enviado no seu WhatsApp (ex: ELITE-2594)</p>
-          <div class="tracker-form">
-            <input type="text" id="trackingInput" class="tracker-input" placeholder="ELITE-XXXX" autocomplete="off">
-            <button id="trackBtn" class="btn-laser">Buscar</button>
-          </div>
-          <p id="errorMsg" style="color: #ff4a4a; font-size: 12px; margin-top: 12px; display: none;">Por favor, digite um código válido.</p>
+  <section style="padding: 40px 0 80px 0;">
+    <div class="container tracker-container">
+      
+      <!-- Input Box -->
+      <div class="tracker-box reveal-item">
+        <span class="kicker" style="margin-bottom: 8px;">Código de Rastreamento</span>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Digite o código de pedido enviado no seu WhatsApp (ex: ELITE-2594)</p>
+        <div class="tracker-form">
+          <input type="text" id="trackingInput" class="tracker-input" placeholder="ELITE-XXXX" autocomplete="off" aria-label="Código de rastreamento">
+          <button id="trackBtn" class="btn-laser">Buscar</button>
         </div>
-
-        <!-- Simulated Results Box (Hidden by default) -->
-        <div id="resultsBox" class="tracker-results reveal-item" style="display: none;">
-          <div class="tracker-header-info">
-            <div>
-              <span class="tracker-title">Status do Pedido</span>
-              <div class="tracker-code" id="displayCode">ELITE-2594</div>
-            </div>
-            <div style="text-align: right;">
-              <span class="tracker-title" style="color: var(--text-muted);">Previsão de Envio</span>
-              <div style="font-family: var(--font-technical); font-size: 15px;" id="deliveryEst">24 a 48 horas</div>
-            </div>
-          </div>
-
-          <!-- Timeline -->
-          <ul class="timeline">
-            <!-- Step 1 -->
-            <li class="timeline-item completed" id="step1">
-              <div class="timeline-content">
-                <h4>Pedido Confirmado & Fila de Produção</h4>
-                <p>Pagamento confirmado e especificações do hardware registradas na fila de montagem.</p>
-                <div class="timeline-time" id="step1Time">02 Julho, 09:30</div>
-              </div>
-            </li>
-            <!-- Step 2 -->
-            <li class="timeline-item" id="step2">
-              <div class="timeline-content">
-                <h4>Separação de Hardware & Verificação</h4>
-                <p>Peças e componentes originais retirados do estoque e submetidos à verificação física de integridade.</p>
-                <div class="timeline-time" id="step2Time">02 Julho, 14:15</div>
-              </div>
-            </li>
-            <!-- Step 3 -->
-            <li class="timeline-item" id="step3">
-              <div class="timeline-content">
-                <h4>Montagem Artesanal & Cable Management</h4>
-                <p>Organização de cabos de alto padrão e montagem cuidadosa no gabinete selecionado.</p>
-                <div class="timeline-time" id="step3Time">03 Julho, 10:00</div>
-              </div>
-            </li>
-            <!-- Step 4 -->
-            <li class="timeline-item" id="step4">
-              <div class="timeline-content">
-                <h4>Testes de Stress & Benchmarks</h4>
-                <p>Bateria de 12 horas seguidas de testes de stress térmico e lógico para garantir a estabilidade máxima do hardware.</p>
-                <div class="timeline-time" id="step4Time">Aguardando etapa anterior</div>
-              </div>
-            </li>
-            <!-- Step 5 -->
-            <li class="timeline-item" id="step5">
-              <div class="timeline-content">
-                <h4>Despachado & Envio Rápido</h4>
-                <p>Gabinete embalado com proteção tripla e coletado pela transportadora parceira com seguro total.</p>
-                <div class="timeline-time" id="step5Time">Aguardando etapa anterior</div>
-              </div>
-            </li>
-          </ul>
-
-          <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 24px; text-align: center;">
-            <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">
-              Dúvidas sobre o progresso ou deseja alterar alguma especificação? Fale direto no suporte.
-            </p>
-            <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="btn-secondary">Chamar no WhatsApp</a>
-          </div>
-
-        </div>
-
+        <p id="errorMsg" style="color: #ff4a4a; font-size: 12px; margin-top: 12px; display: none;">Por favor, digite um código de pedido válido (letras, números e traço).</p>
       </div>
+
+      <!-- Results Container (Escondido por padrão, exibido dinamicamente pelo JS) -->
+      <div class="tracking-results-box reveal-item" id="trackingResults" style="display: none;">
+        
+        <div class="tracking-header-info">
+          <div>
+            <span class="kicker" style="margin-bottom: 4px;">Código Localizado</span>
+            <h3 style="font-family: 'Sora', sans-serif; font-size: 18px;" id="trackingCodeDisplay">-</h3>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-size: 12px; color: var(--text-secondary); display: block;">Previsão de Entrega</span>
+            <span style="font-family: 'Geist Mono', monospace; font-size: 14px; font-weight: 700; color: var(--text-primary);" id="deliveryEst">-</span>
+          </div>
+        </div>
+
+        <div class="tracking-timeline-layout">
+          <!-- Linhas de Progresso -->
+          <div class="timeline-track-line"></div>
+          <div class="timeline-progress-line" id="progressLine"></div>
+          
+          <!-- Indicadores das Etapas -->
+          <div class="steps-indicators">
+            <div class="step-item" id="dot-step-0"><div class="step-indicator-dot"></div></div>
+            <div class="step-item" id="dot-step-1"><div class="step-indicator-dot"></div></div>
+            <div class="step-item" id="dot-step-2"><div class="step-indicator-dot"></div></div>
+            <div class="step-item" id="dot-step-3"><div class="step-indicator-dot"></div></div>
+          </div>
+
+          <!-- Conteúdo descritivo de cada Etapa -->
+          <div class="steps-list">
+            <div class="step-item" id="text-step-0">
+              <h4 style="font-size: 14px; font-family: 'Sora', sans-serif;">Pedido Confirmado & Fila de Produção</h4>
+            </div>
+            <div class="step-item" id="text-step-1">
+              <h4 style="font-size: 14px; font-family: 'Sora', sans-serif;">Montagem Artesanal & Organização de Cabos</h4>
+            </div>
+            <div class="step-item" id="text-step-2">
+              <h4 style="font-size: 14px; font-family: 'Sora', sans-serif;">Fase de Testes de Stress (12 Horas)</h4>
+            </div>
+            <div class="step-item" id="text-step-3">
+              <h4 style="font-size: 14px; font-family: 'Sora', sans-serif;">Pedido Despachado / Pronto para Retirada</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel Detalhado do Status Atual -->
+        <div class="tracking-step-details">
+          <span class="kicker" id="stepTime" style="margin-bottom: 6px;">Atualizando...</span>
+          <h4 style="font-family: 'Sora', sans-serif; font-size: 16px; color: var(--text-primary); margin-bottom: 8px;" id="stepTitle">-</h4>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 0;" id="stepDesc">-</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="btn-laser">Falar com Atendimento Oficial</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -166,9 +149,7 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-info">
-          <a href="index.html" class="logo">ELITE<span>.</span></a>
-        </div>
+        <a href="index.html" class="logo">ELITE<span>.</span></a>
         <div class="footer-copy">
           © 2026 ELITE COMPUTADORES — Todos os direitos reservados
         </div>
@@ -176,148 +157,7 @@
     </div>
   </footer>
 
-  <!-- Mobile Bottom Nav Pill (Fixed) -->
-  <div class="mobile-nav-pill">
-    <nav class="mobile-nav-list">
-      <a href="index.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        <span>Home</span>
-      </a>
-      <a href="catalogo.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-        <span>Catálogo</span>
-      </a>
-      <a href="sorteio.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-        <span>Sorteio</span>
-      </a>
-      <a href="rastreio.html" class="active">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-4 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-        <span>Rastreio</span>
-      </a>
-      <a href="suporte.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-        <span>Suporte</span>
-      </a>
-    </nav>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Scroll Reveal
-      const revealItems = document.querySelectorAll('.reveal-item');
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-      revealItems.forEach((item) => {
-        revealObserver.observe(item);
-      });
-
-      const input = document.getElementById('trackingInput');
-      const btn = document.getElementById('trackBtn');
-      const results = document.getElementById('resultsBox');
-      const errorMsg = document.getElementById('errorMsg');
-      
-      const displayCode = document.getElementById('displayCode');
-      const deliveryEst = document.getElementById('deliveryEst');
-
-      // Steps references
-      const steps = [
-        document.getElementById('step1'),
-        document.getElementById('step2'),
-        document.getElementById('step3'),
-        document.getElementById('step4'),
-        document.getElementById('step5')
-      ];
-
-      const times = [
-        document.getElementById('step1Time'),
-        document.getElementById('step2Time'),
-        document.getElementById('step3Time'),
-        document.getElementById('step4Time'),
-        document.getElementById('step5Time')
-      ];
-
-      const runTracking = () => {
-        const codeVal = input.value.trim().toUpperCase();
-        if (!codeVal) {
-          errorMsg.style.display = 'block';
-          results.style.display = 'none';
-          return;
-        }
-
-        errorMsg.style.display = 'none';
-        displayCode.innerText = codeVal.startsWith('ELITE-') ? codeVal : 'ELITE-' + codeVal;
-        
-        // Generate simulated progress based on code value string length/character codes
-        // This makes it stable (same code always returns same tracking status)
-        let sum = 0;
-        for (let i = 0; i < codeVal.length; i++) {
-          sum += codeVal.charCodeAt(i);
-        }
-        
-        // Active step: 1 to 5 (0-indexed 0 to 4)
-        const activeStepIndex = sum % 5; 
-        
-        // Populate dates relative to today's date
-        const baseDate = new Date();
-        baseDate.setDate(baseDate.getDate() - 3); // 3 days ago
-
-        const formatDate = (date) => {
-          const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-          const pad = (n) => n < 10 ? '0'+n : n;
-          return `${pad(date.getDate())} ${months[date.getMonth()]} às ${pad(date.getHours())}:${pad(date.getMinutes())}`;
-        };
-
-        // Reset steps classes
-        steps.forEach((step, idx) => {
-          step.className = 'timeline-item';
-          
-          if (idx < activeStepIndex) {
-            step.classList.add('completed');
-            const dateOffset = new Date(baseDate.getTime());
-            dateOffset.setHours(dateOffset.getHours() + idx * 24 + 5);
-            times[idx].innerText = formatDate(dateOffset);
-          } else if (idx === activeStepIndex) {
-            step.classList.add('active');
-            const dateOffset = new Date(baseDate.getTime());
-            dateOffset.setHours(dateOffset.getHours() + idx * 24 + 5);
-            times[idx].innerText = formatDate(dateOffset) + ' (Em Andamento)';
-          } else {
-            times[idx].innerText = 'Aguardando etapa anterior';
-          }
-        });
-
-        // Set simulated delivery estimate
-        if (activeStepIndex === 4) {
-          deliveryEst.innerText = "Entregue";
-          deliveryEst.style.color = "var(--accent)";
-        } else {
-          const daysLeft = 4 - activeStepIndex;
-          deliveryEst.innerText = `${daysLeft} a ${daysLeft + 1} dias úteis`;
-          deliveryEst.style.color = "var(--text-primary)";
-        }
-
-        results.style.display = 'block';
-        results.scrollIntoView({ behavior: 'smooth' });
-      };
-
-      btn.addEventListener('click', runTracking);
-      input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          runTracking();
-        }
-      });
-    });
-  </script>
-
-  <!-- Mobile Bottom Nav Pill (Fixed) -->
+  <!-- Mobile Bottom Nav Pill -->
   <div class="mobile-nav-pill">
     <nav class="mobile-nav-list">
       <a href="index.html">
@@ -348,8 +188,29 @@
     <span class="fab-online-badge"></span>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
   </a>
+
+  <!-- Scripts -->
   <script src="products.js"></script>
   <script src="app.js"></script>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealItems = document.querySelectorAll('.reveal-item');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      revealItems.forEach((item) => {
+        revealObserver.observe(item);
+      });
+    });
+  </script>
 
 </body>
 </html>

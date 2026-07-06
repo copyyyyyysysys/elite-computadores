@@ -3,38 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo Premium — Elite Computadores</title>
-  <meta name="description" content="Confira o catálogo completo de computadores gamer, placas de vídeo, processadores, memórias e periféricos da Elite Computadores.">
-  <link rel="stylesheet" href="style.css?v=4.7">
-  <!-- Estilo específico para dropdown de categorias mobile -->
-  <style>
-    .mobile-filter-container {
-      display: none;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-    .mobile-filter-select {
-      width: 100%;
-      height: 48px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      color: var(--text-primary);
-      padding: 0 16px;
-      font-size: 13px;
-      font-weight: 600;
-      outline: none;
-      box-shadow: var(--shadow-sm);
-    }
-    @media (max-width: 1024px) {
-      .mobile-filter-container {
-        display: block;
-      }
-      .catalog-sidebar {
-        display: none; /* Esconde a sidebar no mobile e tablet */
-      }
-    }
-  </style>
+  <title>Catálogo de Categorias — Elite Computadores</title>
+  <meta name="description" content="Explore nossa curadoria técnica completa por categorias. PCs Gamer Prontos e hardware selecionado de altíssimo padrão.">
+  <link rel="stylesheet" href="style.css?v=2026.1">
 </head>
 <body class="blueprint-grid-bg">
 
@@ -45,7 +16,7 @@
       
       <!-- Busca Centralizada (Desktop) / Linha própria (Mobile) -->
       <div class="header-search">
-        <input type="text" id="header-search-input" placeholder="Buscar categoria ou componente de hardware..." aria-label="Buscar categorias">
+        <input type="text" id="header-search-input" placeholder="Buscar categoria ou hardware..." aria-label="Buscar categorias">
         <button class="header-search-btn" id="header-search-submit" aria-label="Buscar">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
@@ -65,7 +36,7 @@
       <div class="header-actions">
         <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="btn-laser header-wa-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
-          <span>Consultoria</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </div>
@@ -80,8 +51,7 @@
           <a href="catalogo.html?filter=motherboards" class="cat-chip">Placas-Mãe</a>
           <a href="catalogo.html?filter=ram" class="cat-chip">Memórias</a>
           <a href="catalogo.html?filter=storage" class="cat-chip">Armazenamento</a>
-          <a href="catalogo.html?filter=power" class="cat-chip">Fontes</a>
-          <a href="catalogo.html?filter=cases" class="cat-chip">Gabinetes</a>
+          <a href="catalogo.html?filter=cases" class="cat-chip">Fontes & Gabinetes</a>
           <a href="catalogo.html?filter=cooling" class="cat-chip">Refrigeração</a>
           <a href="catalogo.html?filter=monitors" class="cat-chip">Monitores</a>
           <a href="catalogo.html?filter=perifericos" class="cat-chip">Periféricos</a>
@@ -91,19 +61,21 @@
   </header>
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" style="padding-top: 40px;">
     <div class="container">
-      <span class="kicker">Catálogo Completo</span>
-      <h1 class="h2-headline">Equipamentos & Hardware</h1>
-      <p class="section-subtitle" style="margin: 0 auto;">Explore nossa curadoria de peças selecionadas de alta performance e PCs gamer sob medida.</p>
+      <div class="section-header" style="text-align: center;">
+        <span class="kicker kicker-badge">Vitrine Oficial</span>
+        <h1 class="h2-headline">Explore por Categorias</h1>
+        <p class="section-subtitle" style="margin: 0 auto;">Navegue pela curadoria técnica da Elite. Ao escolher, fale conosco pelo WhatsApp para montar seu orçamento personalizado.</p>
+      </div>
     </div>
   </section>
 
   <!-- Catalog Main Section -->
-  <section class="products-section" style="padding-top: 40px;">
+  <section class="catalog-page-container">
     <div class="container">
       
-      <!-- Mobile Filter Dropdown (Visível apenas em telas menores) -->
+      <!-- Mobile Filter Dropdown -->
       <div class="mobile-filter-container">
         <select class="mobile-filter-select" id="mobile-filter-select" aria-label="Filtrar por categoria">
           <option value="all">Todas as Categorias</option>
@@ -112,10 +84,9 @@
           <option value="cpus">Processadores (CPUs)</option>
           <option value="motherboards">Placas-mãe</option>
           <option value="ram">Memórias RAM</option>
-          <option value="storage">Armazenamento SSD</option>
-          <option value="power">Fontes de Alimentação</option>
-          <option value="cases">Gabinetes</option>
-          <option value="cooling">Refrigeração (Water Coolers)</option>
+          <option value="storage">Armazenamento (SSD/NVMe)</option>
+          <option value="cases">Fontes e Gabinetes</option>
+          <option value="cooling">Refrigeração (Water Coolers/Coolers)</option>
           <option value="monitors">Monitores</option>
           <option value="perifericos">Periféricos Gamer</option>
         </select>
@@ -146,13 +117,10 @@
                 <span>Memórias RAM</span>
               </div>
               <div class="filter-item" data-category="storage">
-                <span>Armazenamento SSD</span>
-              </div>
-              <div class="filter-item" data-category="power">
-                <span>Fontes</span>
+                <span>Armazenamento</span>
               </div>
               <div class="filter-item" data-category="cases">
-                <span>Gabinetes</span>
+                <span>Fontes e Gabinetes</span>
               </div>
               <div class="filter-item" data-category="cooling">
                 <span>Refrigeração</span>
@@ -169,17 +137,17 @@
 
         <!-- Main Product Listing -->
         <main class="catalog-main">
-          <!-- Toolbar (Busca e Resultados) -->
+          <!-- Toolbar (Busca) -->
           <div class="catalog-toolbar">
             <div class="catalog-search-bar">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="text" id="catalog-search-input" placeholder="Buscar por modelo, marca ou especificação..." aria-label="Buscar produtos">
+              <input type="text" id="catalog-search-input" placeholder="Buscar por especificação técnica, marca..." aria-label="Buscar categorias">
             </div>
           </div>
 
-          <!-- Product Grid (Renderizado dinamicamente pelo JS) -->
+          <!-- Product Grid (Renderizado dinamicamente pelo JS app.js) -->
           <div class="product-grid" id="catalog-product-grid">
-            <!-- Renderização dinâmica -->
+            <!-- Injetado dinamicamente -->
           </div>
         </main>
       </div>
@@ -191,7 +159,7 @@
     <div class="container">
       <div class="footer-grid">
         <a href="index.html" class="logo">ELITE<span>.</span></a>
-        <div>
+        <div class="footer-copy">
           © 2026 ELITE COMPUTADORES — Todos os direitos reservados
         </div>
       </div>
@@ -223,6 +191,13 @@
       </a>
     </nav>
   </div>
+
+  <!-- FAB WhatsApp -->
+  <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="Comprar pelo WhatsApp">
+    <span class="fab-online-badge"></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
+  </a>
+
   <!-- Scripts -->
   <script src="products.js"></script>
   <script src="app.js"></script>
