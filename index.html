@@ -10,10 +10,19 @@
 <body class="blueprint-grid-bg">
 
   <!-- Header -->
-  <header>
-    <div class="container">
+  <header class="main-header">
+    <div class="container header-container">
       <a href="index.html" class="logo">ELITE<span>.</span></a>
-      <nav>
+      
+      <!-- Busca Centralizada (Desktop) / Linha própria (Mobile) -->
+      <div class="header-search">
+        <input type="text" id="header-search-input" placeholder="Buscar categoria ou componente de hardware..." aria-label="Buscar categorias">
+        <button class="header-search-btn" id="header-search-submit" aria-label="Buscar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </div>
+
+      <nav class="desktop-nav">
         <ul class="nav-menu">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="catalogo.html">Catálogo</a></li>
@@ -23,17 +32,31 @@
           <li><a href="feedbacks.html">Feedbacks</a></li>
         </ul>
       </nav>
+
       <div class="header-actions">
-        <!-- Busca integrada no Header -->
-        <div class="header-search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="header-search-input" placeholder="Buscar no catálogo..." aria-label="Buscar produtos">
-        </div>
-        <!-- Sacola de Orçamentos Trigger -->
-        <button class="cart-trigger" aria-label="Ver sacola de orçamentos">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-          <span class="cart-badge" style="display: none;">0</span>
-        </button>
+        <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="btn-laser header-wa-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
+          <span>Consultoria</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Barra Horizontal de Categorias (Sub-header) -->
+    <div class="categories-nav-bar">
+      <div class="container">
+        <nav class="categories-nav">
+          <a href="catalogo.html?filter=pcs" class="cat-chip">PCs Gamer</a>
+          <a href="catalogo.html?filter=gpus" class="cat-chip">Placas de Vídeo</a>
+          <a href="catalogo.html?filter=cpus" class="cat-chip">Processadores</a>
+          <a href="catalogo.html?filter=motherboards" class="cat-chip">Placas-Mãe</a>
+          <a href="catalogo.html?filter=ram" class="cat-chip">Memórias</a>
+          <a href="catalogo.html?filter=storage" class="cat-chip">Armazenamento</a>
+          <a href="catalogo.html?filter=power" class="cat-chip">Fontes</a>
+          <a href="catalogo.html?filter=cases" class="cat-chip">Gabinetes</a>
+          <a href="catalogo.html?filter=cooling" class="cat-chip">Refrigeração</a>
+          <a href="catalogo.html?filter=monitors" class="cat-chip">Monitores</a>
+          <a href="catalogo.html?filter=perifericos" class="cat-chip">Periféricos</a>
+        </nav>
       </div>
     </div>
   </header>
@@ -50,7 +73,7 @@
             <p class="slide-subtitle">Montagem sob medida com GeForce RTX 4090, Intel Core i9, refrigeração líquida e fluidos Liquid Jade exclusivos.</p>
             <div class="slide-actions">
               <a href="catalogo.html?filter=pcs" class="btn-laser">Ver Máquina</a>
-              <button class="btn-secondary btn-add-to-cart" data-id="1">Adicionar ao Orçamento</button>
+              <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20o%20PC%20Gamer%20Elite%20Hyperdrive." target="_blank" rel="noopener noreferrer" class="btn-secondary">Solicitar no WhatsApp</a>
             </div>
           </div>
           <div class="slide-image-container">
@@ -65,8 +88,8 @@
             <h1 class="slide-headline">Setup Completo Master</h1>
             <p class="slide-subtitle">A experiência gamer definitiva. Monitores curvos, periféricos magnéticos e a máquina dos seus sonhos pronta para rodar.</p>
             <div class="slide-actions">
-              <a href="catalogo.html?filter=setups" class="btn-laser">Confira a Coleção</a>
-              <button class="btn-secondary btn-add-to-cart" data-id="3">Adicionar ao Orçamento</button>
+              <a href="catalogo.html?filter=monitors" class="btn-laser">Confira a Coleção</a>
+              <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20saber%20mais%20sobre%20a%20coleção%20Setup%20Completo%20Master." target="_blank" rel="noopener noreferrer" class="btn-secondary">Falar com Consultor</a>
             </div>
           </div>
           <div class="slide-image-container">
@@ -82,7 +105,7 @@
             <p class="slide-subtitle">Mouse Attack Shark X11 de 59g e Teclado Magnético Attk com Rapid Trigger para tempos de resposta instantâneos.</p>
             <div class="slide-actions">
               <a href="catalogo.html?filter=perifericos" class="btn-laser">Ver Periféricos</a>
-              <button class="btn-secondary btn-add-to-cart" data-id="35">Adicionar ao Orçamento</button>
+              <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20solicitar%20periféricos%20gamer%20de%20ponta." target="_blank" rel="noopener noreferrer" class="btn-secondary">Pedir no WhatsApp</a>
             </div>
           </div>
           <div class="slide-image-container">
@@ -155,12 +178,12 @@
       <div style="text-align: center; margin-bottom: 50px;">
         <span class="kicker">Navegação Rápida</span>
         <h2 class="h2-headline">Explore por Categorias</h2>
-        <p style="margin: 0 auto; color: var(--text-secondary);">Encontre com facilidade o que você precisa para elevar o nível da sua gameplay.</p>
+        <p style="margin: 0 auto; color: var(--text-secondary);">Encontre com facilidade o que você precisa. Fale com um consultor especialista no WhatsApp.</p>
       </div>
 
       <div class="categories-grid">
         <!-- Categoria 1 -->
-        <a href="catalogo.html?filter=pcs" class="category-card">
+        <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20a%20categoria%20de%20PCs%20Gamer%20Prontos." target="_blank" rel="noopener noreferrer" class="category-card">
           <div class="category-img-box">
             <img src="assets/real_setup_master.png" alt="PCs Gamer sob medida" class="category-img" loading="lazy">
           </div>
@@ -171,7 +194,7 @@
         </a>
 
         <!-- Categoria 2 -->
-        <a href="catalogo.html?filter=monitors" class="category-card">
+        <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20consultar%20opções%20de%20Monitores%20Premium." target="_blank" rel="noopener noreferrer" class="category-card">
           <div class="category-img-box">
             <img src="assets/hero_setup.png" alt="Monitores e Telas" class="category-img" loading="lazy">
           </div>
@@ -182,18 +205,18 @@
         </a>
 
         <!-- Categoria 3 -->
-        <a href="catalogo.html?filter=perifericos" class="category-card">
+        <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20consultar%20opções%20de%20Periféricos%20de%20Elite." target="_blank" rel="noopener noreferrer" class="category-card">
           <div class="category-img-box">
             <img src="assets/peripherals.png" alt="Periféricos gamers" class="category-img" loading="lazy">
           </div>
           <div class="category-info">
             <h3>Periféricos de Ponta</h3>
-            <p>Mouses ultraleves e teclados magnéticos</p>
+            <p>Mouses ultraleves e teclados mecânicos</p>
           </div>
         </a>
 
         <!-- Categoria 4 -->
-        <a href="catalogo.html?filter=gpus" class="category-card">
+        <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20a%20categoria%20de%20Hardware." target="_blank" rel="noopener noreferrer" class="category-card">
           <div class="category-img-box">
             <img src="assets/real_liquid_jade.png" alt="Peças e Hardware" class="category-img" loading="lazy">
           </div>
@@ -202,6 +225,20 @@
             <p>GPUs, Processadores, Placas-mãe</p>
           </div>
         </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="catalogo.html" class="btn-laser" style="padding: 12px 36px;">Ver Todas as Categorias</a>
+      </div>
+      
+      <!-- Bloco de Reforço de Confiança e Especialista Gamer -->
+      <div class="advisor-banner reveal-item" style="margin-top: 60px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-shadow: var(--shadow-md);">
+        <div>
+          <span class="kicker" style="margin-bottom: 4px;">Suporte Especializado</span>
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Não sabe qual categoria escolher para o seu PC?</h3>
+          <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0;">Fale direto com um especialista de hardware no WhatsApp para montar a configuração ideal sob medida para seu orçamento e perfil de jogos.</p>
+        </div>
+        <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20falar%20com%20um%20especialista%20para%20me%20ajudar%20a%20escolher%20as%20peças%20ou%20meu%20PC%20ideal." target="_blank" rel="noopener noreferrer" class="btn-laser" style="flex-shrink: 0; background: var(--accent); color: white;">Falar com Especialista</a>
       </div>
     </div>
   </section>
@@ -605,37 +642,11 @@
         <span>Suporte</span>
       </a>
     </nav>
-  </div>
-
-  <!-- FAB WhatsApp -->
+  </div>  <!-- FAB WhatsApp -->
   <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="Comprar pelo WhatsApp">
     <span class="fab-online-badge"></span>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
   </a>
-
-  <!-- SACOLA DRAWER OVERLAY -->
-  <div class="cart-drawer-overlay" id="cart-overlay"></div>
-
-  <!-- SACOLA DRAWER -->
-  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Sacola de orçamentos">
-    <div class="cart-drawer-header">
-      <h3>Sacola de Orçamentos</h3>
-      <button class="cart-close-btn" id="cart-close" aria-label="Fechar sacola">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-    </div>
-    
-    <!-- Itens do Carrinho (Renderizados via JS) -->
-    <div class="cart-drawer-items" id="cart-items">
-      <div class="cart-empty-message">Sua sacola está vazia. Adicione produtos do catálogo!</div>
-    </div>
-
-    <div class="cart-drawer-footer">
-      <a href="#" id="cart-checkout-btn" class="btn-laser" target="_blank" rel="noopener noreferrer" style="display: none;">
-        Solicitar Orçamento no WhatsApp
-      </a>
-    </div>
-  </div>
 
   <!-- Scripts -->
   <script src="products.js"></script>
@@ -644,18 +655,7 @@
   <!-- Script Auxiliar de Busca e Animação Count-up -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Redirecionamento da busca do Header
-      const headerSearchInput = document.getElementById('header-search-input');
-      if (headerSearchInput) {
-        headerSearchInput.addEventListener('keypress', e => {
-          if (e.key === 'Enter') {
-            const query = encodeURIComponent(headerSearchInput.value.trim());
-            window.location.href = `catalogo.html?search=${query}`;
-          }
-        });
-      }
-
-      // 2. Animação Count-up
+      // Animação Count-up
       const statNumbers = document.querySelectorAll('.stat-number');
       const countUp = (element) => {
         const target = parseFloat(element.getAttribute('data-target'));

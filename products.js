@@ -434,3 +434,118 @@ const products = [
     badge: "Mais Vendida"
   }
 ];
+
+// Banco de dados de Categorias Premium (Pivô Loja de Categorias)
+const categoriesData = [
+  {
+    id: "pcs",
+    title: "PCs Gamer Prontos",
+    category: "pcs",
+    image: "assets/real_setup_master.png",
+    desc: "Máquinas completas de altíssima performance, projetadas de forma artesanal e otimizadas para jogos exigentes, streaming e produtividade extrema.",
+    specs: ["Lian Li Aquário", "RTX 4090 / 4080 Super", "i9-14900K / Ryzen X3D", "Cable Management"],
+    badge: "Montagem Exclusiva",
+    message: "Olá Elite Computadores! Tenho interesse em configurar um PC Gamer Pronto sob medida e gostaria de iniciar um atendimento."
+  },
+  {
+    id: "gpus",
+    title: "Placas de Vídeo (GPUs)",
+    category: "gpus",
+    image: "assets/real_liquid_jade.png",
+    desc: "As melhores placas gráficas do mercado mundial para renderização ultrarrápida, Ray Tracing avançado e inteligência artificial.",
+    specs: ["NVIDIA RTX 4090", "RTX 4080 / 4070 Ti Super", "AMD Radeon RX 7900", "Ray Tracing & DLSS 3.0"],
+    badge: "Destaque Técnico",
+    message: "Olá Elite Computadores! Gostaria de consultar modelos e valores disponíveis de Placas de Vídeo."
+  },
+  {
+    id: "cpus",
+    title: "Processadores (CPUs)",
+    category: "cpus",
+    image: "assets/real_elite_shift.png",
+    desc: "O cérebro da sua máquina. CPUs líderes de mercado que garantem estabilidade, altíssimas taxas de FPS e potência contínua sob qualquer nível de estresse.",
+    specs: ["Intel Core i9-14900K", "AMD Ryzen 7 7800X3D", "Intel Core i7 / Ryzen 7", "Até 24 Cores / Cache 3D"],
+    badge: "Performance Bruta",
+    message: "Olá Elite Computadores! Gostaria de cotar opções de Processadores de alta performance."
+  },
+  {
+    id: "motherboards",
+    title: "Placas-Mãe (Motherboards)",
+    category: "motherboards",
+    image: "assets/real_elite_shift.png",
+    desc: "Bases robustas com dissipação reforçada nos VRMs, conectividade de última geração e barramento PCIe 5.0 para máxima largura de banda.",
+    specs: ["ASUS ROG Strix", "Gigabyte AORUS", "Chipsets Z790 / B650 / X670", "Wi-Fi 7 & PCIe 5.0"],
+    badge: "Estabilidade Total",
+    message: "Olá Elite Computadores! Gostaria de ajuda para escolher a melhor Placa-Mãe para o meu setup."
+  },
+  {
+    id: "ram",
+    title: "Memórias RAM",
+    category: "ram",
+    image: "assets/real_liquid_jade.png",
+    desc: "Módulos DDR5 de alta frequência e baixa latência que proporcionam multitarefa suave e o fim definitivo de engasgos durante jogos pesados.",
+    specs: ["G.Skill Trident Z5", "Corsair Dominator Titanium", "DDR5 6000MHz - 7200MHz", "CL30 - CL32 Latency"],
+    badge: "Máxima Velocidade",
+    message: "Olá Elite Computadores! Gostaria de verificar opções e kits de Memória RAM DDR5."
+  },
+  {
+    id: "storage",
+    title: "Armazenamento SSD NVMe",
+    category: "storage",
+    image: "assets/real_setup_master.png",
+    desc: "SSDs de altíssimo desempenho para tempos de carregamento instantâneos no sistema operacional e nos seus jogos favoritos.",
+    specs: ["Kingston KC3000", "Crucial T700 PCIe 5.0", "Até 7400MB/s Leitura", "Capacidades de 1TB a 4TB"],
+    badge: "Instant Load",
+    message: "Olá Elite Computadores! Gostaria de cotar SSDs NVMe de alta velocidade de armazenamento."
+  },
+  {
+    id: "power",
+    title: "Fontes de Alimentação",
+    category: "power",
+    image: "assets/real_setup_red_fans.png",
+    desc: "Fontes com certificações Gold e Platinum para entrega limpa e segura de energia para os componentes mais potentes da atualidade.",
+    specs: ["Corsair RMx / Shift", "ROG Thor / Loki OLED", "Padrão ATX 3.0 / PCIe 5.0", "Eficiência 80 Plus Gold/Platinum"],
+    badge: "Energia Segura",
+    message: "Olá Elite Computadores! Gostaria de receber indicações de Fontes adequadas para o meu hardware."
+  },
+  {
+    id: "cases",
+    title: "Gabinetes Premium",
+    category: "cases",
+    image: "assets/real_setup_master.png",
+    desc: "Gabinetes com design inovador estilo aquário, materiais nobres como vidro temperado e alumínio, projetados para resfriamento ideal.",
+    specs: ["Lian Li O11 Dynamic", "NZXT H9 Flow / Elite", "Hyte Y70 / Y60 Touch", "Foco em Cable Management"],
+    badge: "Design Exclusivo",
+    message: "Olá Elite Computadores! Tenho interesse em escolher um Gabinete Premium para o meu setup."
+  },
+  {
+    id: "cooling",
+    title: "Refrigeração & Fans",
+    category: "cooling",
+    image: "assets/real_liquid_jade.png",
+    desc: "Water Coolers de alto desempenho com telas LCD customizáveis e kits de ventoinhas magnéticas de fluxo contínuo para refrigeração silenciosa.",
+    specs: ["Lian Li Galahad II LCD", "NZXT Kraken Elite LCD", "Kits Fans Uni Fan TL/Infinity", "Fluidos Translúcidos Custom"],
+    badge: "Zero Thermal Throttling",
+    message: "Olá Elite Computadores! Gostaria de planejar o sistema de Refrigeração e Coolers do meu PC."
+  },
+  {
+    id: "monitors",
+    title: "Monitores Ultra-Gamer",
+    category: "monitors",
+    image: "assets/hero_setup.png",
+    desc: "Telas de alta taxa de atualização, painéis OLED e cores vibrantes que dão vida a cada detalhe dos seus jogos em resoluções QHD e 4K.",
+    specs: ["QD-OLED & OLED Panels", "240Hz a 360Hz Refresh Rate", "Resolução QHD / 4K UHD", "0.03ms Resposta Instantânea"],
+    badge: "Imersão Total",
+    message: "Olá Elite Computadores! Gostaria de consultar opções de Monitores Premium de alta frequência."
+  },
+  {
+    id: "perifericos",
+    title: "Periféricos de Elite",
+    category: "perifericos",
+    image: "assets/peripherals.png",
+    desc: "Equipamentos de alta performance competitiva. Mouses ultraleves de nível profissional e teclados mecânicos/magnéticos com resposta instantânea.",
+    specs: ["Attack Shark X11 / R1", "Teclados Magnéticos Switch Hall", "Mouses Ultraleves < 59g", "Tecnologia Rapid Trigger"],
+    badge: "Alta Precisão",
+    message: "Olá Elite Computadores! Gostaria de consultar as opções de Mouses e Teclados Magnéticos."
+  }
+];
+

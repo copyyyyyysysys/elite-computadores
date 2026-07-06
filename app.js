@@ -1,7 +1,7 @@
 // Lógica global do E-commerce - Elite Computadores
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializações Globais
-  initCart();
+  initHeaderSearch();
   initHeroSlider();
   initCatalog();
   initFAQ();
@@ -9,209 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
-// 1. SACOLA DE ORÇAMENTOS (CARRINHO LOCALSTORAGE)
+// 1. BUSCA E REDIRECIONAMENTO DO HEADER UNIFICADO
 // ==========================================================================
-let cart = [];
+function initHeaderSearch() {
+  const headerSearchInput = document.getElementById('header-search-input');
+  const headerSearchBtn = document.getElementById('header-search-submit');
 
-function initCart() {
-  const storedCart = localStorage.getItem('elite_cart');
-  if (storedCart) {
-    try {
-      // Sanitização básica dos dados lidos do localStorage
-      const parsed = JSON.parse(storedCart);
-      if (Array.isArray(parsed)) {
-        cart = parsed.filter(item => {
-          return item && typeof item.id === 'number' && typeof item.quantity === 'number';
-        });
-      }
-    } catch (e) {
-      cart = [];
+  function handleSearch() {
+    if (!headerSearchInput) return;
+    const query = headerSearchInput.value.trim();
+    if (query) {
+      window.location.href = `catalogo.html?search=${encodeURIComponent(query)}`;
     }
   }
-  updateCartUI();
 
-  // Event Listeners dos botões de abrir/fechar sacola
-  const triggers = document.querySelectorAll('.cart-trigger');
-  const closeBtn = document.getElementById('cart-close');
-  const overlay = document.getElementById('cart-overlay');
-  const drawer = document.getElementById('cart-drawer');
-
-  if (triggers) {
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', e => {
+  if (headerSearchInput) {
+    headerSearchInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
         e.preventDefault();
-        toggleCart(true);
-      });
-    });
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => toggleCart(false));
-  }
-
-  if (overlay) {
-    overlay.addEventListener('click', () => toggleCart(false));
-  }
-
-  // Interceptar clicks globais para botões de "Adicionar ao Orçamento"
-  document.body.addEventListener('click', e => {
-    const addBtn = e.target.closest('.btn-add-to-cart');
-    if (addBtn) {
-      e.preventDefault();
-      const id = parseInt(addBtn.getAttribute('data-id'), 10);
-      if (id) {
-        addToCart(id);
-        toggleCart(true); // Abre a sacola ao adicionar
+        handleSearch();
       }
-    }
-  });
-}
-
-function toggleCart(open) {
-  const overlay = document.getElementById('cart-overlay');
-  const drawer = document.getElementById('cart-drawer');
-  if (overlay && drawer) {
-    if (open) {
-      overlay.classList.add('active');
-      drawer.classList.add('active');
-    } else {
-      overlay.classList.remove('active');
-      drawer.classList.remove('active');
-    }
-  }
-}
-
-function addToCart(productId) {
-  // Busca o produto na base
-  const product = products.find(p => p.id === productId);
-  if (!product) return;
-
-  const existingItem = cart.find(item => item.id === productId);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      id: product.id,
-      title: product.title,
-      image: product.image,
-      quantity: 1
     });
   }
-  saveCart();
-}
 
-function updateCartQuantity(productId, delta) {
-  const item = cart.find(item => item.id === productId);
-  if (!item) return;
-
-  item.quantity += delta;
-  if (item.quantity <= 0) {
-    cart = cart.filter(i => i.id !== productId);
-  }
-  saveCart();
-}
-
-function removeFromCart(productId) {
-  cart = cart.filter(item => item.id !== productId);
-  saveCart();
-}
-
-function saveCart() {
-  localStorage.setItem('elite_cart', JSON.stringify(cart));
-  updateCartUI();
-}
-
-// Atualizar interface visual da sacola
-function updateCartUI() {
-  const badges = document.querySelectorAll('.cart-badge');
-  const itemsContainer = document.getElementById('cart-items');
-  const checkoutBtn = document.getElementById('cart-checkout-btn');
-
-  // Calcula total de itens
-  const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  // Atualiza badges do header
-  badges.forEach(badge => {
-    badge.textContent = totalQty;
-    badge.style.display = totalQty > 0 ? 'flex' : 'none';
-  });
-
-  if (!itemsContainer) return;
-
-  if (cart.length === 0) {
-    itemsContainer.innerHTML = '<div class="cart-empty-message">Sua sacola está vazia. Adicione produtos do catálogo!</div>';
-    if (checkoutBtn) checkoutBtn.style.display = 'none';
-    return;
-  }
-
-  if (checkoutBtn) checkoutBtn.style.display = 'block';
-
-  // Renderização segura sem innerHTML bruto de dados externos
-  itemsContainer.innerHTML = '';
-  cart.forEach(item => {
-    const itemEl = document.createElement('div');
-    itemEl.className = 'cart-item';
-    
-    // Imagem
-    const img = document.createElement('img');
-    img.src = item.image;
-    img.alt = item.title;
-    img.className = 'cart-item-img';
-    itemEl.appendChild(img);
-
-    // Detalhes
-    const info = document.createElement('div');
-    info.className = 'cart-item-info';
-    
-    const title = document.createElement('div');
-    title.className = 'cart-item-title';
-    title.textContent = item.title; // Seguro: texto plano
-    info.appendChild(title);
-
-    const qty = document.createElement('div');
-    qty.className = 'cart-item-qty';
-
-    // Botão Menos
-    const btnMinus = document.createElement('button');
-    btnMinus.className = 'qty-btn';
-    btnMinus.textContent = '-';
-    btnMinus.addEventListener('click', () => updateCartQuantity(item.id, -1));
-    qty.appendChild(btnMinus);
-
-    const qtyText = document.createElement('span');
-    qtyText.textContent = item.quantity;
-    qty.appendChild(qtyText);
-
-    // Botão Mais
-    const btnPlus = document.createElement('button');
-    btnPlus.className = 'qty-btn';
-    btnPlus.textContent = '+';
-    btnPlus.addEventListener('click', () => updateCartQuantity(item.id, 1));
-    qty.appendChild(btnPlus);
-
-    info.appendChild(qty);
-    itemEl.appendChild(info);
-
-    // Botão Remover
-    const btnRemove = document.createElement('button');
-    btnRemove.className = 'cart-item-remove';
-    btnRemove.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>`;
-    btnRemove.addEventListener('click', () => removeFromCart(item.id));
-    itemEl.appendChild(btnRemove);
-
-    itemsContainer.appendChild(itemEl);
-  });
-
-  // Atualizar link de checkout WhatsApp
-  if (checkoutBtn) {
-    let message = "Olá Elite Computadores! Montei meu carrinho no site e gostaria de solicitar um orçamento para os seguintes itens:\n\n";
-    cart.forEach(item => {
-      message += `- ${item.quantity}x ${item.title} (R$ Sob Consulta)\n`;
+  if (headerSearchBtn) {
+    headerSearchBtn.addEventListener('click', e => {
+      e.preventDefault();
+      handleSearch();
     });
-    message += "\nGostaria de verificar a disponibilidade e condições comerciais.";
-
-    const encodedMessage = encodeURIComponent(message);
-    checkoutBtn.setAttribute('href', `https://wa.me/message/NR2ONO462GFLA1?text=${encodedMessage}`);
   }
 }
 
@@ -284,7 +109,7 @@ function initHeroSlider() {
 }
 
 // ==========================================================================
-// 3. SISTEMA DE CATÁLOGO DINÂMICO (COM SEGURANÇA E FILTROS)
+// 3. SISTEMA DE CATÁLOGO DINÂMICO DE CATEGORIAS (COM FILTROS E BUSCA SEGURA)
 // ==========================================================================
 function initCatalog() {
   const catalogGrid = document.getElementById('catalog-product-grid');
@@ -297,33 +122,20 @@ function initCatalog() {
   let activeCategory = 'all';
   let searchQuery = '';
 
-  // Sanitização de string contra XSS
-  function sanitizeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
-      tag => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        "'": '&#39;',
-        '"': '&quot;'
-      }[tag] || tag)
-    );
-  }
-
   // Validação estrita de categorias conhecidas
-  const validCategories = ['all', 'pcs', 'gpus', 'cpus', 'motherboards', 'ram', 'storage', 'power', 'cases', 'cooling', 'monitors', 'perifericos', 'chairs'];
+  const validCategories = ['all', 'pcs', 'gpus', 'cpus', 'motherboards', 'ram', 'storage', 'power', 'cases', 'cooling', 'monitors', 'perifericos'];
   
   function validateCategory(cat) {
     return validCategories.includes(cat) ? cat : 'all';
   }
 
-  // Renderiza produtos baseados no filtro e busca
+  // Renderiza categorias baseadas no filtro e busca
   function renderCatalog() {
-    const filtered = products.filter(product => {
-      const matchCat = activeCategory === 'all' || product.category === activeCategory;
-      const matchSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          product.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          product.specs.some(spec => spec.toLowerCase().includes(searchQuery.toLowerCase()));
+    const filtered = categoriesData.filter(category => {
+      const matchCat = activeCategory === 'all' || category.category === activeCategory;
+      const matchSearch = category.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          category.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          category.specs.some(spec => spec.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchCat && matchSearch;
     });
 
@@ -333,20 +145,27 @@ function initCatalog() {
       const emptyEl = document.createElement('div');
       emptyEl.className = 'cart-empty-message';
       emptyEl.style.gridColumn = '1 / -1';
-      emptyEl.textContent = `Nenhum produto encontrado para "${sanitizeHTML(searchQuery)}".`;
+      emptyEl.textContent = 'Nenhuma categoria encontrada para "';
+      
+      const termSpan = document.createElement('span');
+      termSpan.style.fontWeight = 'bold';
+      termSpan.textContent = searchQuery; // Seguro contra injeção
+      
+      emptyEl.appendChild(termSpan);
+      emptyEl.appendChild(document.createTextNode('".'));
       catalogGrid.appendChild(emptyEl);
       return;
     }
 
-    filtered.forEach(product => {
+    filtered.forEach(category => {
       const card = document.createElement('div');
       card.className = 'product-card reveal-item revealed';
 
       // Badge de destaque (se existir)
-      if (product.badge) {
+      if (category.badge) {
         const badge = document.createElement('div');
         badge.className = 'product-badge';
-        badge.textContent = product.badge; // Seguro
+        badge.textContent = category.badge; // Seguro
         card.appendChild(badge);
       }
 
@@ -354,16 +173,16 @@ function initCatalog() {
       const imgBox = document.createElement('div');
       imgBox.className = 'product-img-box';
       const img = document.createElement('img');
-      img.src = product.image;
-      img.alt = product.title;
+      img.src = category.image;
+      img.alt = category.title;
       img.loading = 'lazy';
       imgBox.appendChild(img);
       card.appendChild(imgBox);
 
-      // Chips de Especificações
+      // Chips de Destaques Técnicos / Especificações Comuns
       const chips = document.createElement('div');
       chips.className = 'product-specs-chips';
-      product.specs.forEach(spec => {
+      category.specs.forEach(spec => {
         const span = document.createElement('span');
         span.textContent = spec;
         chips.appendChild(span);
@@ -373,32 +192,30 @@ function initCatalog() {
       // Título
       const title = document.createElement('h3');
       title.className = 'product-title';
-      title.textContent = product.title;
+      title.textContent = category.title;
       card.appendChild(title);
 
       // Descrição
       const desc = document.createElement('p');
       desc.className = 'product-desc';
-      desc.textContent = product.desc;
+      desc.style.height = 'auto'; // Ajuste automático de altura para categorias
+      desc.style.webkitLineClamp = 'initial'; // Permite texto completo de curadoria
+      desc.textContent = category.desc;
       card.appendChild(desc);
 
-      // Botões de Ação
+      // Botão de Contato WhatsApp
       const actions = document.createElement('div');
       actions.className = 'product-actions';
+      actions.style.marginTop = '20px';
 
-      const addBtn = document.createElement('button');
-      addBtn.className = 'btn-laser btn-add-to-cart';
-      addBtn.setAttribute('data-id', product.id);
-      addBtn.innerHTML = `Adicionar ao Orçamento`;
-      actions.appendChild(addBtn);
-
-      const directMsg = `Olá Elite Computadores! Gostaria de tirar uma dúvida sobre o produto: ${product.title}`;
       const waLink = document.createElement('a');
-      waLink.className = 'btn-secondary';
-      waLink.href = `https://wa.me/message/NR2ONO462GFLA1?text=${encodeURIComponent(directMsg)}`;
+      waLink.className = 'btn-laser';
+      waLink.style.width = '100%';
+      waLink.style.textAlign = 'center';
+      waLink.href = `https://wa.me/message/NR2ONO462GFLA1?text=${encodeURIComponent(category.message)}`;
       waLink.target = '_blank';
       waLink.setAttribute('rel', 'noopener noreferrer');
-      waLink.textContent = 'Perguntar no WhatsApp';
+      waLink.textContent = 'Falar com Consultor no WhatsApp';
       actions.appendChild(waLink);
 
       card.appendChild(actions);
@@ -406,7 +223,7 @@ function initCatalog() {
     });
   }
 
-  // Listener da Caixa de Busca (Sanitizada)
+  // Listener da Caixa de Busca do Catálogo
   if (searchInput) {
     searchInput.addEventListener('input', e => {
       searchQuery = e.target.value;
@@ -447,9 +264,11 @@ function initCatalog() {
     });
   }
 
-  // Lê categoria inicial da query string (?filter=pcs)
+  // Lê parâmetros iniciais da query string (?filter=pcs ou ?search=termo)
   const urlParams = new URLSearchParams(window.location.search);
   const initialFilter = urlParams.get('filter');
+  const initialSearch = urlParams.get('search');
+
   if (initialFilter) {
     activeCategory = validateCategory(initialFilter);
     // Ativa na interface
@@ -458,6 +277,13 @@ function initCatalog() {
     });
     if (mobileFilterDropdown) {
       mobileFilterDropdown.value = activeCategory;
+    }
+  }
+
+  if (initialSearch) {
+    searchQuery = initialSearch;
+    if (searchInput) {
+      searchInput.value = searchQuery;
     }
   }
 
@@ -485,14 +311,10 @@ function initFAQ() {
 }
 
 // ==========================================================================
-// 5. MENU MOBILE / REDIMENSIONAMENTO RESILIENTE
+// 5. MENU MOBILE / REDIMENSIONAMENTO
 // ==========================================================================
 function initMobileMenu() {
-  // Garante que ao redimensionar a tela, nenhum elemento (ex: Sacola) quebre
   window.addEventListener('resize', () => {
-    const isDesktop = window.innerWidth > 768;
-    if (isDesktop) {
-      // Opcional: fechar drawer mobile se necessário
-    }
+    // Redimensionamentos resilientes se necessários
   });
 }
