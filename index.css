@@ -2829,11 +2829,13 @@ img {
     align-items: center;
 }
 
-.subpage-container {
+.subpage-container,
+.section-container {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
 .subpage-card {
@@ -3265,5 +3267,87 @@ img {
     .subpage-ctas .btn-secondary {
         font-size: 0.8rem;
         padding: 10px;
+    }
+}
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE WHATSAPP (FAB)
+   ========================================================================== */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: wpp-pulse 2s ease-in-out infinite;
+    text-decoration: none;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: #ffffff;
+}
+
+@keyframes wpp-pulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7); }
+}
+
+/* ==========================================================================
+   FOOTER RESPONSIVIDADE MOBILE REFORÇADA
+   ========================================================================== */
+@media (max-width: 767px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 24px;
+        padding: 30px 16px;
+    }
+
+    .footer-brand-column,
+    .footer-links-column {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .footer-tagline {
+        font-size: 0.8rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 16px;
+    }
+
+    .copyright-text {
+        font-size: 0.7rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .footer-payment-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .payment-badge {
+        font-size: 0.65rem;
     }
 }
