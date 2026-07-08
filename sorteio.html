@@ -1,226 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campanha Sorteio PC Gamer — Elite Computadores</title>
-  <meta name="description" content="Participe do sorteio oficial do PC Gamer Elite de alta performance. Confira o prêmio, especificações e como participar.">
-  <link rel="stylesheet" href="style.css?v=2026.1">
-</head>
-<body class="blueprint-grid-bg">
-
-  <!-- Header -->
-  <header class="main-header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">ELITE<span>.</span></a>
-      
-      <!-- Busca Centralizada (Desktop) / Linha própria (Mobile) -->
-      <div class="header-search">
-        <input type="text" id="header-search-input" placeholder="Buscar categoria ou hardware..." aria-label="Buscar categorias">
-        <button class="header-search-btn" id="header-search-submit" aria-label="Buscar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </button>
-      </div>
-
-      <nav class="desktop-nav">
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="sorteio.html" class="active">Sorteio</a></li>
-          <li><a href="rastreio.html">Rastrear Pedido</a></li>
-          <li><a href="suporte.html">Suporte</a></li>
-          <li><a href="feedbacks.html">Feedbacks</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="btn-laser header-wa-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
-          <span>WhatsApp</span>
-        </a>
-      </div>
-    </div>
     
-    <!-- Barra Horizontal de Categorias (Sub-header) -->
-    <div class="categories-nav-bar">
-      <div class="container">
-        <nav class="categories-nav">
-          <a href="catalogo.html?filter=pcs" class="cat-chip">PCs Gamer</a>
-          <a href="catalogo.html?filter=gpus" class="cat-chip">Placas de Vídeo</a>
-          <a href="catalogo.html?filter=cpus" class="cat-chip">Processadores</a>
-          <a href="catalogo.html?filter=motherboards" class="cat-chip">Placas-Mãe</a>
-          <a href="catalogo.html?filter=ram" class="cat-chip">Memórias</a>
-          <a href="catalogo.html?filter=storage" class="cat-chip">Armazenamento</a>
-          <a href="catalogo.html?filter=cases" class="cat-chip">Fontes & Gabinetes</a>
-          <a href="catalogo.html?filter=cooling" class="cat-chip">Refrigeração</a>
-          <a href="catalogo.html?filter=monitors" class="cat-chip">Monitores</a>
-          <a href="catalogo.html?filter=perifericos" class="cat-chip">Periféricos</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <!-- Page Header -->
-  <section class="page-header" style="padding-top: 40px;">
-    <div class="container">
-      <div class="section-header" style="text-align: center;">
-        <span class="kicker kicker-badge">Campanha Oficial 2026</span>
-        <h1 class="h2-headline">Sorteio PC Gamer</h1>
-        <p class="section-subtitle" style="margin: 0 auto;">Realize o sonho de conquistar uma máquina de alta performance com montagem artesanal e componentes selecionados.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sorteio Detalhes -->
-  <section style="padding: 40px 0 80px 0;">
-    <div class="container" style="max-width: 900px;">
-      
-      <!-- Card do Prêmio -->
-      <div class="trust-card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; padding: 24px; margin-bottom: 48px;">
-        <div style="position: relative; aspect-ratio: 1/1; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--border);">
-          <span class="cat-card-badge">Grande Prêmio</span>
-          <img src="assets/real_liquid_jade.png" alt="PC Gamer Sorteio" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        
-        <div>
-          <span class="kicker">Máquina dos Sonhos</span>
-          <h2 class="h2-headline" style="font-size: 24px; margin-bottom: 12px;">PC Gamer I9 RTX 4090</h2>
-          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Uma obra de arte tecnológica montada à mão por especialistas. Refrigeração líquida com fluido translúcido de alta performance, iluminação RGB coordenada e estabilidade extrema testada sob estresse.</p>
-          
-          <div style="display: flex; flex-direction: column; gap: 8px; font-family: 'Geist Mono', monospace; font-size: 12px;">
-            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
-              <span style="color: var(--text-secondary);">CPU</span>
-              <span style="color: var(--accent);">Intel Core i9-14900K</span>
+    
+    
+    
+    
+    
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Sorteio Oficial — PC Gamer Elite | ELITE COMPUTADORES</title>
+    <meta name="description" content="Participe do sorteio oficial do PC Gamer Elite pela Elite Computadores. Todo o processo é 100% gratuito e finalizado em nosso WhatsApp oficial.">
+    
+    <!-- Google Fonts (Outfit e Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons Natico Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Estilos CSS Unificados -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="canonical" href="https://elitecomputadores.com.br/sorteio.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sorteio Oficial PC Gamer Elite",
+      "description": "Participe do sorteio oficial de hardware gamer na Elite Computadores. Entre no grupo oficial do WhatsApp e concorra a um PC Gamer Elite completo.",
+      "url": "https://elitecomputadores.com.br/sorteio.html"
+    }
+    </script>
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ELITE Computadores">
+</head>
+<body>
+    <!-- TOP ANNOUNCEMENT BAR (ESTILO TICKER ROTATIVO) -->
+    <div class="top-bar">
+        <div class="top-bar-ticker">
+            <div class="ticker-track">
+                <span class="ticker-item"><i data-lucide="truck" class="icon-sm"></i> Envio rápido para todo Brasil</span>
+                <span class="ticker-item"><i data-lucide="shield-check" class="icon-sm"></i> Garantia nacional</span>
+                <span class="ticker-item"><i data-lucide="cpu" class="icon-sm"></i> Testes de estresse em todos os PCs</span>
+                <span class="ticker-item"><i data-lucide="file-text" class="icon-sm"></i> Nota fiscal conforme disponibilidade</span>
+                <span class="ticker-item"><i data-lucide="message-square" class="icon-sm"></i> Atendimento 100% pelo WhatsApp</span>
             </div>
-            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
-              <span style="color: var(--text-secondary);">GPU</span>
-              <span style="color: var(--accent);">NVIDIA RTX 4090 24GB</span>
+            <div class="ticker-track">
+                <span class="ticker-item"><i data-lucide="truck" class="icon-sm"></i> Envio rápido para todo Brasil</span>
+                <span class="ticker-item"><i data-lucide="shield-check" class="icon-sm"></i> Garantia nacional</span>
+                <span class="ticker-item"><i data-lucide="cpu" class="icon-sm"></i> Testes de estresse em todos os PCs</span>
+                <span class="ticker-item"><i data-lucide="file-text" class="icon-sm"></i> Nota fiscal conforme disponibilidade</span>
+                <span class="ticker-item"><i data-lucide="message-square" class="icon-sm"></i> Atendimento 100% pelo WhatsApp</span>
             </div>
-            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
-              <span style="color: var(--text-secondary);">RAM</span>
-              <span style="color: var(--accent);">64GB DDR5 6000MHz</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
-              <span style="color: var(--text-secondary);">SSD</span>
-              <span style="color: var(--accent);">2TB NVMe Gen4 High Speed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Passo a Passo -->
-      <div style="margin-bottom: 48px;">
-        <h3 class="h2-headline" style="font-size: 24px; text-align: center; margin-bottom: 32px;">Como Participar</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
-          
-          <!-- Passo 1 -->
-          <div class="trust-card" style="padding: 24px; text-align: center;">
-            <div class="trust-icon-box" style="margin: 0 auto 16px auto;">01</div>
-            <h4 style="font-family: 'Sora', sans-serif; font-size: 16px; margin-bottom: 8px;">Adquira um Bilhete</h4>
-            <p style="font-size: 13px; color: var(--text-secondary);">Compre suas cotas/bilhetes diretamente pelo painel oficial indicado pelo atendimento oficial.</p>
-          </div>
-
-          <!-- Passo 2 -->
-          <div class="trust-card" style="padding: 24px; text-align: center;">
-            <div class="trust-icon-box" style="margin: 0 auto 16px auto;">02</div>
-            <h4 style="font-family: 'Sora', sans-serif; font-size: 16px; margin-bottom: 8px;">Confirme seu Pedido</h4>
-            <p style="font-size: 13px; color: var(--text-secondary);">Envie o comprovante de pagamento no WhatsApp oficial para validação do seu bilhete.</p>
-          </div>
-
-          <!-- Passo 3 -->
-          <div class="trust-card" style="padding: 24px; text-align: center;">
-            <div class="trust-icon-box" style="margin: 0 auto 16px auto;">03</div>
-            <h4 style="font-family: 'Sora', sans-serif; font-size: 16px; margin-bottom: 8px;">Acompanhe a Extração</h4>
-            <p style="font-size: 13px; color: var(--text-secondary);">O sorteio é realizado com base na extração oficial da Loteria Federal assim que as cotas forem concluídas.</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Termos e Regras do Sorteio -->
-      <div class="terms-banner">
-        <h3>Regras Gerais do Sorteio</h3>
-        <p>A participação na campanha está sujeita aos seguintes termos oficiais acordados no atendimento:</p>
-        <div class="terms-list">
-          <div class="term-bullet">O sorteio ocorrerá apenas após a venda de 100% dos bilhetes disponíveis.</div>
-          <div class="term-bullet">O resultado baseia-se estritamente na extração oficial da Loteria Federal.</div>
-          <div class="term-bullet">A entrega do prêmio é realizada gratuitamente em todo o território nacional.</div>
-          <div class="term-bullet">O prêmio não pode ser convertido em dinheiro físico ou saldo comercial.</div>
-        </div>
-        <div style="text-align: center; margin-top: 24px;">
-          <a href="https://wa.me/message/NR2ONO462GFLA1?text=Olá%20Elite%20Computadores!%20Gostaria%20de%20saber%20mais%20detalhes%20e%20como%20adquirir%20bilhetes%20para%20o%20Sorteio%20do%20PC%20Gamer." target="_blank" rel="noopener noreferrer" class="btn-laser">Garantir Meu Bilhete</a>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <a href="index.html" class="logo">ELITE<span>.</span></a>
-        <div class="footer-copy">
-          © 2026 ELITE COMPUTADORES — Todos os direitos reservados
+    <!-- MAIN DENSE HEADER (E-COMMERCE STYLE) -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo SVG Premium -->
+            <a href="index.html" class="logo" aria-label="ELITE COMPUTADORES Home">
+                <svg width="36" height="36" viewBox="0 0 100 100" class="logo-svg" alt="Elite Computadores Logo">
+                    <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="var(--neon-cyan)" stroke-width="8" stroke-linejoin="round"/>
+                    <path d="M30,45 L50,30 L70,45" fill="none" stroke="var(--neon-purple)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30,65 L50,50 L70,65" fill="none" stroke="var(--neon-cyan)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-brand">ELITE</span>
+                    <span class="logo-sub">COMPUTADORES</span>
+                </div>
+            </a>
+
+            <!-- Menu Horizontal Desktop (Navegação de Seções e Páginas) -->
+            <nav class="header-nav hide-mobile" style="display: flex; align-items: center; gap: 20px; margin: 0 15px;">
+                <a href="index.html#vitrine" class="header-nav-link" style="font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; transition: var(--transition-fast);">Produtos</a>
+                <a href="index.html#depoimentos" class="header-nav-link" style="font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; transition: var(--transition-fast);">Avaliações</a>
+                <a href="index.html#faq" class="header-nav-link" style="font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; transition: var(--transition-fast);">FAQ</a>
+                <a href="sorteio.html" class="header-nav-link" style="font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; transition: var(--transition-fast);">Sorteio</a>
+                <a href="rastreio.html" class="header-nav-link" style="font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; color: var(--text-main); text-transform: uppercase; transition: var(--transition-fast);">Rastreio</a>
+            </nav>
+
+            <!-- Search Bar Funcional -->
+            <div class="search-bar-wrapper">
+                <div class="search-bar-input-container" style="height: 44px; display: flex;">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="live-search" placeholder="O que você está procurando hoje?" class="search-input" style="height: 100%; box-sizing: border-box;">
+                    <button class="search-btn" aria-label="Buscar" style="height: 100%; box-sizing: border-box;"><i data-lucide="arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="header-actions">
+                <div class="header-status-badge">
+                    <span class="status-dot animate-pulse"></span>
+                    <span class="status-text">WhatsApp Online</span>
+                </div>
+                
+                <button class="visual-btn cart-trigger-btn" aria-label="Visualizar Carrinho" id="cart-trigger">
+                    <div class="cart-icon-wrapper">
+                        <i data-lucide="shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </div>
+                </button>
+
+                <a href="https://wa.me/message/NR2ONO462GFLA1" class="btn-primary header-cta" target="_blank" rel="noopener noreferrer" style="height: 36px; box-sizing: border-box; display: inline-flex; align-items: center;">
+                    <i data-lucide="message-square" class="icon-md"></i>
+                    <span>Consultar <span class="hide-mobile">Setup</span></span>
+                </a>
+            </div>
+
+            <!-- Hamburger Menu Mobile -->
+            <button class="mobile-menu-toggle" aria-label="Abrir Menu" aria-expanded="false" id="menu-toggle">
+                <i data-lucide="menu" style="width: 20px; height: 20px; stroke-width: 2.5px;"></i>
+            </button>
         </div>
-      </div>
-    </div>
-  </footer>
+    </header>
 
-  <!-- Mobile Bottom Nav Pill -->
-  <div class="mobile-nav-pill">
-    <nav class="mobile-nav-list">
-      <a href="index.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        <span>Home</span>
-      </a>
-      <a href="catalogo.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-        <span>Catálogo</span>
-      </a>
-      <a href="sorteio.html" class="active">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-        <span>Sorteio</span>
-      </a>
-      <a href="rastreio.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-4 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-        <span>Rastreio</span>
-      </a>
-      <a href="suporte.html">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-        <span>Suporte</span>
-      </a>
+    <!-- HORIZONTAL DEPARTMENTS NAV -->
+    <nav class="departments-nav">
+        <div class="departments-container">
+            <div class="dept-dropdown-trigger" id="dept-all-trigger">
+                <i data-lucide="menu" class="icon-sm"></i> Todos os Departamentos
+            </div>
+            <div class="dept-links">
+                <a href="index.html#vitrine" class="dept-link" data-filter="all">Todos</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="pcs-gamer">PCs Gamer</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="setup-completo">Setups Completos</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="placas-video">Placas de Vídeo</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="monitores">Monitores</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="perifericos">Periféricos</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="gabinetes">Gabinetes</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="hardwares">Hardwares</a>
+                <a href="index.html#vitrine" class="dept-link" data-filter="refrigeracao">Refrigeração</a>
+                <a href="index.html#vitrine" class="dept-link text-purple" data-filter="ofertas"><i data-lucide="percent" class="icon-xs"></i> Ofertas</a>
+                <a href="rastreio.html" class="dept-link"><i data-lucide="truck" class="icon-xs"></i> Rastreio</a>
+                <a href="sorteio.html" class="dept-link active"><i data-lucide="gift" class="icon-xs"></i> Sorteio</a>
+            </div>
+        </div>
     </nav>
-  </div>
 
-  <!-- FAB WhatsApp -->
-  <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="fab-wa" aria-label="Comprar pelo WhatsApp">
-    <span class="fab-online-badge"></span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436.002 9.858-4.419 9.86-9.86.002-2.636-1.02-5.115-2.88-6.978-1.859-1.863-4.332-2.887-6.974-2.888-5.439 0-9.863 4.42-9.865 9.862-.001 1.637.49 3.235 1.424 4.82L1.97 22.1l4.677-1.226zM17.486 14.4c-.3-.15-1.776-.877-2.052-.977-.276-.1-.476-.15-.676.15-.2.3-.776.977-.95 1.177-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.127-.892-1.93-2.107-2.152-2.482-.225-.375-.024-.578.125-.727.136-.135.3-.35.45-.525.15-.175.2-.3.3-.5s.05-.375-.025-.525C9.4 9.176 8.75 7.6 8.474 6.924c-.268-.646-.54-.56-.74-.57l-.63-.01c-.24-.01-.63.08-.96.44-.33.36-1.26 1.23-1.26 3s1.29 3.47 1.47 3.71c.18.24 2.54 3.88 6.15 5.44.86.37 1.53.59 2.06.76.86.27 1.65.23 2.27.14.69-.1 1.776-.726 2.026-1.393.25-.667.25-1.237.175-1.393-.075-.15-.275-.25-.575-.4z"/></svg>
-  </a>
+    <!-- MOBILE NAVIGATION DRAWER (MENU LATERAL PREMIUM) -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="mobile-menu-close" id="menu-close" aria-label="Fechar Menu">
+            <i data-lucide="x"></i>
+        </button>
+        <nav class="mobile-nav-links" style="display: flex; flex-direction: column; gap: 4px; padding-top: 30px;">
+            <h4 class="mobile-menu-title" style="margin-bottom: 15px; font-family: var(--font-title); font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Navegação</h4>
+            <a href="index.html#vitrine" class="mobile-nav-item" style="min-height: 48px; display: flex; align-items: center; padding: 12px 16px; font-family: var(--font-title); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--text-main); border-radius: var(--radius-md); transition: var(--transition-fast);"><i data-lucide="shopping-bag" class="icon-sm" style="margin-right: 8px; color: var(--neon-cyan);"></i> Produtos</a>
+            <a href="index.html#depoimentos" class="mobile-nav-item" style="min-height: 48px; display: flex; align-items: center; padding: 12px 16px; font-family: var(--font-title); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--text-main); border-radius: var(--radius-md); transition: var(--transition-fast);"><i data-lucide="message-square" class="icon-sm" style="margin-right: 8px; color: var(--neon-cyan);"></i> Avaliações</a>
+            <a href="index.html#faq" class="mobile-nav-item" style="min-height: 48px; display: flex; align-items: center; padding: 12px 16px; font-family: var(--font-title); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--text-main); border-radius: var(--radius-md); transition: var(--transition-fast);"><i data-lucide="help-circle" class="icon-sm" style="margin-right: 8px; color: var(--neon-cyan);"></i> FAQ</a>
+            <a href="sorteio.html" class="mobile-nav-item" style="min-height: 48px; display: flex; align-items: center; padding: 12px 16px; font-family: var(--font-title); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--text-main); border-radius: var(--radius-md); transition: var(--transition-fast);"><i data-lucide="gift" class="icon-sm" style="margin-right: 8px; color: var(--neon-purple);"></i> Sorteio</a>
+            <a href="rastreio.html" class="mobile-nav-item" style="min-height: 48px; display: flex; align-items: center; padding: 12px 16px; font-family: var(--font-title); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--text-main); border-radius: var(--radius-md); transition: var(--transition-fast);"><i data-lucide="package" class="icon-sm" style="margin-right: 8px; color: var(--neon-purple);"></i> Rastreio</a>
+            
+            <hr class="mobile-menu-divider" style="margin: 20px 0; border: none; border-top: 1px solid var(--border-color);">
+            
+            <div style="display: flex; align-items: center; gap: 8px; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 12px;">
+                <span class="status-dot animate-pulse" style="width: 6px; height: 6px; background-color: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #22c55e;"></span>
+                <span style="font-size: 0.75rem; color: #fff; font-weight: 700;">WhatsApp Ativo Online</span>
+            </div>
+            
+            <a href="https://wa.me/message/NR2ONO462GFLA1" class="btn-primary w-full text-center" target="_blank" rel="noopener noreferrer" style="min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box;">
+                <i data-lucide="message-square" class="icon-md"></i> Consultar WhatsApp
+            </a>
+        </nav>
+    </div>
 
-  <!-- Scripts -->
-  <script src="products.js"></script>
-  <script src="app.js"></script>
+    <!-- BACKDROP DO MENU MOBILE -->
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 
-  <!-- Scroll Reveal Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const revealItems = document.querySelectorAll('.reveal-item');
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    <!-- MAIN CONTENT -->
+    <main>
+        <section class="subpage-section">
+            <div class="section-container">
+                <div class="subpage-card">
+                    
+                    <div class="subpage-header">
+                        <span class="subpage-tag"><i data-lucide="gift" class="icon-xs"></i> Promoção Especial</span>
+                        <h1 class="subpage-title">Sorteio Oficial <br><span class="highlight-orange">PC Gamer Elite</span></h1>
+                        <p class="subpage-subtitle">
+                            Participe gratuitamente do sorteio oficial de hardware da nossa loja e concorra a um setup completo de alto desempenho para jogar tudo no ultra.
+                        </p>
+                    </div>
 
-      revealItems.forEach((item) => {
-        revealObserver.observe(item);
-      });
-    });
-  </script>
+                    <div class="subpage-hero-image-wrapper">
+                        <img src="imgs/pcs-gamer.webp" alt="PC Gamer Sorteado" class="subpage-hero-img">
+                    </div>
 
+                    <div class="subpage-steps">
+                        <h3 class="subpage-steps-title">Como Participar do Sorteio</h3>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <div class="step-icon-box">1</div>
+                                <div class="step-item-content">
+                                    <h4>Acesse o WhatsApp</h4>
+                                    <p>Clique no botão principal de participação logo abaixo para abrir a nossa fila oficial de atendimento.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-icon-box">2</div>
+                                <div class="step-item-content">
+                                    <h4>Envie a Mensagem</h4>
+                                    <p>Envie a mensagem automática pré-definida solicitando o seu ticket virtual de confirmação del sorteio.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-icon-box">3</div>
+                                <div class="step-item-content">
+                                    <h4>Guarde Seu Ticket</h4>
+                                    <p>Nossa equipe registrará os seus dados e você estará concorrendo oficialmente ao setup gamer completo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subpage-rules-box">
+                        <h4 class="rules-box-title"><i data-lucide="info" class="icon-sm"></i> Regras Básicas do Sorteio</h4>
+                        <ul class="rules-list">
+                            <li>Sorteio oficial promovido exclusivamente pela ELITE COMPUTADORES.</li>
+                            <li>O resultado final e os ganhadores serão divulgados por meio do nosso WhatsApp oficial.</li>
+                            <li>A participação e validação dos cupons virtuais ocorrem exclusivamente pelo nosso canal de atendimento.</li>
+                            <li>A ELITE COMPUTADORES reserva-se o direito de alterar os prazos e termos de participação sem aviso prévio.</li>
+                            <li>A validação de sua presença na lista do sorteio deve ser confirmada diretamente com um de nossos atendentes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subpage-ctas">
+                        <a href="https://wa.me/message/NR2ONO462GFLA1?text=Ol%C3%A1!%20Quero%20participar%20do%20sorteio%20do%20PC%20Gamer!" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                            <i data-lucide="gift" class="icon-md"></i> PARTICIPAR DO SORTEIO AGORA
+                        </a>
+                        <a href="index.html" class="btn-secondary">
+                            <i data-lucide="arrow-left" class="icon-md"></i> VOLTAR PARA A LOJA
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER ROBUSTO DE ECOMMERCE (SEM CNPJ / REDES SOCIAIS) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand-column">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 100 100" class="logo-svg">
+                        <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="var(--neon-cyan)" stroke-width="8" stroke-linejoin="round"/>
+                        <path d="M30,45 L50,30 L70,45" fill="none" stroke="var(--neon-purple)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M30,65 L50,50 L70,65" fill="none" stroke="var(--neon-cyan)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="logo-text">
+                        <span class="logo-brand text-md">ELITE</span>
+                        <span class="logo-sub text-xs">COMPUTADORES</span>
+                    </div>
+                </div>
+                <p class="footer-tagline">
+                    Referência em hardware gamer de alta performance. Desenvolvemos setups personalizados com peças selecionadas, montagem de elite e envio rápido segurado.
+                </p>
+            </div>
+
+            <div class="footer-links-column">
+                <h4 class="footer-col-title">Vitrine</h4>
+                <ul class="footer-links">
+                    <li><a href="#vitrine" data-filter="pcs-gamer">PCs Gamer</a></li>
+                    <li><a href="#vitrine" data-filter="setup-completo">Setups Completos</a></li>
+                    <li><a href="#vitrine" data-filter="placas-video">Placas de Vídeo</a></li>
+                    <li><a href="#vitrine" data-filter="hardwares">Peças & Hardwares</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-column">
+                <h4 class="footer-col-title">Institucional</h4>
+                <ul class="footer-links">
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#depoimentos">Avaliações Reais</a></li>
+                    <li><a href="#faq">FAQ Operacional</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-column">
+                <h4 class="footer-col-title">Atendimento Oficial</h4>
+                <ul class="footer-links-contact">
+                    <li>
+                        <a href="https://wa.me/message/NR2ONO462GFLA1" target="_blank" rel="noopener noreferrer" class="contact-highlight">
+                            <i data-lucide="message-square" class="text-cyan"></i>
+                            <span>Suporte no WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="contact-info-item">
+                        <i data-lucide="clock" class="text-muted"></i>
+                        <span>Fila organizada por ordem de chegada.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="copyright-text">
+                    &copy; 2026 ELITE COMPUTADORES. Todos os direitos reservados. Foco em performance gamer.
+                </p>
+                <div class="footer-payment-badges">
+                    <span class="payment-badge" title="Pix"><i data-lucide="qr-code"></i> Pix</span>
+                    <span class="payment-badge" title="Cartão de Crédito"><i data-lucide="credit-card"></i> Cartão de Crédito</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART SIDE-DRAWER -->
+    <div class="cart-drawer-backdrop" id="cart-backdrop"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3 class="cart-drawer-title"><i data-lucide="shopping-cart"></i> Seu Carrinho</h3>
+            <button class="cart-drawer-close" id="cart-close" aria-label="Fechar Carrinho"><i data-lucide="x"></i></button>
+        </div>
+        <div class="cart-drawer-body">
+            <div class="cart-empty-state">
+                <i data-lucide="shopping-bag" class="cart-empty-icon"></i>
+                <h4 class="cart-empty-title">Nenhum produto adicionado</h4>
+                <p class="cart-empty-text">Adicione itens do nosso catálogo gamer ou configure sua máquina customizada no atendimento.</p>
+            </div>
+        </div>
+        <div class="cart-drawer-footer">
+            <p class="cart-drawer-note">
+                <i data-lucide="info" class="icon-sm"></i> Nossos setups e cotações de peças são fechados exclusivamente via WhatsApp com suporte especializado para garantir compatibilidade.
+            </p>
+            <a href="https://wa.me/message/NR2ONO462GFLA1" class="btn-primary w-full text-center" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="message-square" class="icon-md"></i> Fechar Compra no WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Script de Inicialização -->
+    <script src="index.js"></script>
 </body>
 </html>

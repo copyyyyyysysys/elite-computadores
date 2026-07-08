@@ -1,19 +1,41 @@
-# Configurações Locais e IDEs
-.agents/
-.gemini/
+# Dependências
+node_modules/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.production
+
+# Backups e temporários
+*.bak
+*.backup
+*.old
+*.tmp
+*.temp
+*.log
+
+# Minificados (não estão em uso — site usa os originais)
+index.min.css
+index.min.js
+
+# IDE e editores
 .vscode/
 .idea/
 
-# Documentos Internos / Briefings
-segundo cerebro/
-DESIGN.md
-
-# Sistema e Logs
-node_modules/
+# OS
 .DS_Store
 Thumbs.db
-*.log
-.env
-.env.local
-.env.development
-.env.production
+desktop.ini
+
+# Segundo Cérebro (dados internos, não devem ir pro deploy)
+segundo cerebro/
+
+# Agentes e configurações locais
+.agents/
+
+# Scripts de build temporários
+production_build.js
+safe_production_build.js
+back_to_originals.js
+clean_dead_code.js
+_cleanup.js
