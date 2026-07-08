@@ -1962,39 +1962,6 @@ img {
     margin-top: 1px;
 }
 
-/* FLOATING WPP */
-.wpp-floating-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    background-color: #22c55e;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(34, 197, 148, 0.3);
-    z-index: 98;
-    transition: var(--transition-fast);
-    animation: wpp-pulse 2s infinite;
-}
-
-.wpp-floating-btn:hover {
-    transform: scale(1.05);
-}
-
-.wpp-floating-svg {
-    width: 24px;
-    height: 24px;
-}
-
-@keyframes wpp-pulse {
-    0% { box-shadow: 0 4px 12px rgba(34, 197, 148, 0.3), 0 0 0 0 rgba(34, 197, 148, 0.3); }
-    70% { box-shadow: 0 4px 12px rgba(34, 197, 148, 0.3), 0 0 0 8px rgba(34, 197, 148, 0); }
-    100% { box-shadow: 0 4px 12px rgba(34, 197, 148, 0.3), 0 0 0 0 rgba(34, 197, 148, 0); }
-}
 
 /* ==========================================================================
    FOOTER SECTION (DENSE WHITE-COMPATIBLE FOOTER)
@@ -2491,18 +2458,7 @@ img {
         font-size: 0.7rem;
     }
 
-    /* Floating WhatsApp Button Mobile */
-    .wpp-floating-btn {
-        width: 42px;
-        height: 42px;
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .wpp-floating-svg {
-        width: 20px;
-        height: 20px;
-    }
+
     
     /* Footer Mobile */
     .main-footer {
