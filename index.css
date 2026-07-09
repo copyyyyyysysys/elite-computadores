@@ -3280,6 +3280,45 @@ img {
 }
 
 /* ==========================================================================
+   BOTÃO FLUTUANTE SORTEIO (FAB — APENAS MAIN PAGE)
+   ========================================================================== */
+.sorteio-fab {
+    position: fixed;
+    bottom: 84px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 85, 0, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: sorteio-pulse 2s ease-in-out infinite;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.sorteio-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(255, 85, 0, 0.6);
+}
+
+.sorteio-fab svg {
+    width: 26px;
+    height: 26px;
+    stroke: #ffffff;
+    fill: none;
+}
+
+@keyframes sorteio-pulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(255, 85, 0, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(255, 85, 0, 0.7); }
+}
+
+/* ==========================================================================
    FOOTER RESPONSIVIDADE MOBILE REFORÇADA
    ========================================================================== */
 @media (max-width: 767px) {
