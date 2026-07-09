@@ -246,12 +246,18 @@ img {
     flex-shrink: 0;
 }
 
-.logo-svg {
-    filter: drop-shadow(0 2px 4px rgba(2, 132, 199, 0.1));
+.logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
     transition: var(--transition-fast);
 }
 
-.logo:hover .logo-svg {
+.main-footer .logo-img {
+    height: 32px;
+}
+
+.logo:hover .logo-img {
     transform: scale(1.03);
 }
 
