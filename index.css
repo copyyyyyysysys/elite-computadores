@@ -2785,8 +2785,7 @@ img {
     align-items: center;
 }
 
-.subpage-container,
-.section-container {
+.subpage-container {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
@@ -2912,6 +2911,10 @@ img {
     font-weight: 800;
     font-family: var(--font-title);
 }
+.step-item-content {
+    flex: 1;
+    min-width: 0;
+}
 
 .step-item-content h4 {
     font-family: var(--font-title);
@@ -2925,6 +2928,9 @@ img {
     font-size: 0.8rem;
     color: var(--text-muted);
     line-height: 1.5;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Rules / Terms Box */
@@ -2958,15 +2964,19 @@ img {
     font-size: 0.75rem;
     color: var(--text-muted);
     line-height: 1.5;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    position: relative;
+    padding-left: 16px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .rules-list li::before {
     content: '•';
     color: var(--neon-cyan);
     font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 /* CTAs block */
