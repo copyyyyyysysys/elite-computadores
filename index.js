@@ -351,16 +351,23 @@ document.addEventListener('DOMContentLoaded', () => {
         let autoHideTimeout = null;
         let nextTriggerTimeout = null;
 
-        // Inicializar estado a partir do sessionStorage
+        // Inicializar estado a partir do sessionStorage com blindagem rígida contra NaN/valores inválidos
         const initSession = () => {
             const count = sessionStorage.getItem('sorteio_bubble_shows');
-            bubbleCount = count ? parseInt(count, 10) : 0;
+            let parsed = count ? parseInt(count, 10) : 0;
+            if (isNaN(parsed) || parsed < 0) {
+                parsed = 0;
+            }
+            bubbleCount = parsed;
             
             const clicked = sessionStorage.getItem('sorteio_clicked');
             clickedSorteio = clicked === 'true';
         };
 
         const saveSession = () => {
+            if (isNaN(bubbleCount) || bubbleCount < 0) {
+                bubbleCount = 0;
+            }
             sessionStorage.setItem('sorteio_bubble_shows', bubbleCount);
         };
 
