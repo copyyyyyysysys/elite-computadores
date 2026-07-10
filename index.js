@@ -322,4 +322,122 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 12. BALÃO FLUTUANTE DE SORTEIO (CRISP STYLE - APENAS SE SORTEIO-FAB EXISTIR)
+    const sorteioFab = document.getElementById('sorteio-fab');
+    if (sorteioFab) {
+        // Criar o balão dinamicamente no DOM
+        const bubble = document.createElement('div');
+        bubble.className = 'sorteio-bubble';
+        bubble.id = 'sorteio-bubble';
+        bubble.innerHTML = `
+            <span class="sorteio-bubble-text">🎁 Sorteio de PC Gamer! Clique e participe.</span>
+            <button class="sorteio-bubble-close" id="sorteio-bubble-close" aria-label="Fechar">&times;</button>
+        `;
+        document.body.appendChild(bubble);
+
+        const bubbleClose = document.getElementById('sorteio-bubble-close');
+
+        // Variáveis de controle de timeouts
+        let autoHideTimeout = null;
+        let nextTriggerTimeout = null;
+        let isBubbleOpen = false;
+
+        // Recuperar e salvar dados da sessão no sessionStorage
+        const getSessionCount = () => {
+            const count = sessionStorage.getItem('sorteio_bubble_shows');
+            return count ? parseInt(count, 10) : 0;
+        };
+
+        const incrementSessionCount = () => {
+            const count = getSessionCount();
+            sessionStorage.setItem('sorteio_bubble_shows', count + 1);
+        };
+
+        const isUserConverted = () => {
+            return sessionStorage.getItem('sorteio_clicked') === 'true';
+        };
+
+        // Função para mostrar o balão
+        const showBubble = (isAuto = true) => {
+            if (isUserConverted()) return;
+            if (isAuto && getSessionCount() >= 3) return;
+            if (isBubbleOpen) return;
+
+            bubble.classList.add('active');
+            sorteioFab.classList.add('pulse-intense');
+            isBubbleOpen = true;
+
+            if (isAuto) {
+                incrementSessionCount();
+            }
+
+            // Ocultar automaticamente após 8 segundos
+            clearTimeout(autoHideTimeout);
+            autoHideTimeout = setTimeout(() => {
+                hideBubble();
+            }, 8000);
+        };
+
+        // Função para ocultar o balão
+        const hideBubble = () => {
+            if (!isBubbleOpen) return;
+            bubble.classList.remove('active');
+            sorteioFab.classList.remove('pulse-intense');
+            isBubbleOpen = false;
+            clearTimeout(autoHideTimeout);
+        };
+
+        // Clique no balão -> navega para sorteio.html
+        bubble.addEventListener('click', (e) => {
+            if (e.target.closest('#sorteio-bubble-close')) return;
+            
+            sessionStorage.setItem('sorteio_clicked', 'true');
+            hideBubble();
+            window.location.href = 'sorteio.html';
+        });
+
+        // Clique no X -> fecha o balão
+        bubbleClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            hideBubble();
+
+            // Interrompe o fluxo automático atual e reagenda para 30 segundos depois
+            clearTimeout(nextTriggerTimeout);
+            if (getSessionCount() < 3 && !isUserConverted()) {
+                nextTriggerTimeout = setTimeout(runAutoCycle, 30000);
+            }
+        });
+
+        // Clique no botão flutuante direto -> marca como convertido (não exibe mais nesta sessão)
+        sorteioFab.addEventListener('click', () => {
+            sessionStorage.setItem('sorteio_clicked', 'true');
+            hideBubble();
+        });
+
+        // Hover no botão flutuante -> mostra imediatamente se estiver fechado
+        sorteioFab.addEventListener('mouseenter', () => {
+            if (!isBubbleOpen && !isUserConverted()) {
+                showBubble(false); // Mostra por hover (não conta para o limite de exibições espontâneas)
+            }
+        });
+
+        // Lógica do ciclo de repetição automático (a cada 45 segundos)
+        const runAutoCycle = () => {
+            if (isUserConverted() || getSessionCount() >= 3) {
+                clearTimeout(nextTriggerTimeout);
+                return;
+            }
+
+            showBubble(true);
+
+            // Agenda a próxima tentativa para 45 segundos a partir de agora
+            clearTimeout(nextTriggerTimeout);
+            nextTriggerTimeout = setTimeout(runAutoCycle, 45000);
+        };
+
+        // Inicia o ciclo: primeira aparição após 5 segundos
+        nextTriggerTimeout = setTimeout(runAutoCycle, 5000);
+    }
+
 });

@@ -3362,3 +3362,133 @@ img {
         font-size: 0.65rem;
     }
 }
+
+/* ==========================================================================
+   BALÃO FLUTUANTE DE SORTEIO (CRISP CHAT STYLE)
+   ========================================================================== */
+.sorteio-bubble {
+    position: fixed;
+    z-index: 10000;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 12px 32px 12px 16px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    max-width: 260px;
+    
+    /* Posição Desktop (Esquerda do FAB) */
+    bottom: 92px;
+    right: 86px;
+    
+    /* Transições suaves */
+    opacity: 0;
+    transform: translateX(20px) scale(0.95);
+    transition: opacity 0.3s ease-out, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.sorteio-bubble.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Seta indicadora (Desktop - Aponta para a direita) */
+.sorteio-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.sorteio-bubble-text {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.sorteio-bubble-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px 6px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.sorteio-bubble-close:hover {
+    color: var(--neon-cyan);
+}
+
+/* Responsividade Mobile (Abaixo de 768px) */
+@media (max-width: 767px) {
+    .sorteio-bubble {
+        /* Mobile (Acima do FAB) */
+        bottom: 150px;
+        right: 20px;
+        transform: translateY(20px) scale(0.95);
+    }
+    
+    .sorteio-bubble.active {
+        transform: translateY(0) scale(1);
+    }
+
+    /* Seta indicadora (Mobile - Aponta para baixo) */
+    .sorteio-bubble::after {
+        top: auto;
+        bottom: -6px;
+        right: 23px;
+        transform: rotate(135deg);
+        border-top: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+    }
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .sorteio-bubble {
+        transition: opacity 0.3s ease-out;
+        transform: none !important;
+    }
+    .sorteio-fab {
+        animation: none !important;
+    }
+    .sorteio-fab.pulse-intense {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Intensificar pulse do FAB quando o balão aparecer */
+.sorteio-fab.pulse-intense {
+    animation: sorteio-pulse-intense 1.5s ease-in-out infinite;
+}
+
+@keyframes sorteio-pulse-intense {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.7);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 20px 10px rgba(255, 85, 0, 0);
+        transform: scale(1.08);
+    }
+}
+
