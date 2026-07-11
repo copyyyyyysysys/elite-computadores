@@ -322,14 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 11.5 ESCUTA GLOBAL PARA MARCAR CONVERSÃO DO SORTEIO APENAS NO CLIQUE REAL DE PARTICIPAR
-    document.addEventListener('click', (e) => {
-        const link = e.target.closest('a');
-        if (link && link.href && link.href.includes('5FL4EQNQJIX7L1')) {
-            sessionStorage.setItem('sorteio_clicked', 'true');
-        }
-    });
-
     // 12. BALÃO FLUTUANTE DE SORTEIO (CRISP STYLE - APENAS SE SORTEIO-FAB EXISTIR)
     const sorteioFab = document.getElementById('sorteio-fab');
     if (sorteioFab) {
@@ -351,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const bubbleClose = document.getElementById('sorteio-bubble-close');
 
-        // Variáveis de estado locais
+        // Variáveis de estado locais (em memória simples, reiniciadas a cada carregamento)
         const maxBubbles = 8;
         let bubbleCount = 0;
         let clickedSorteio = false;
@@ -360,39 +352,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let autoHideTimeout = null;
         let nextTriggerTimeout = null;
 
-        // Inicializar estado a partir do sessionStorage com blindagem rígida contra NaN/valores inválidos
-        const initSession = () => {
-            const count = sessionStorage.getItem('sorteio_bubble_shows');
-            let parsed = count ? parseInt(count, 10) : 0;
-            if (isNaN(parsed) || parsed < 0) {
-                parsed = 0;
-            }
-            bubbleCount = parsed;
-            
-            const clicked = sessionStorage.getItem('sorteio_clicked');
-            clickedSorteio = clicked === 'true';
-        };
-
-        const saveSession = () => {
-            if (isNaN(bubbleCount) || bubbleCount < 0) {
-                bubbleCount = 0;
-            }
-            sessionStorage.setItem('sorteio_bubble_shows', bubbleCount);
-        };
-
-        // Inicialização imediata das variáveis de sessão
-        initSession();
-
         // Função para mostrar o balão
         const mostrarBalao = (isAuto = true) => {
-            if (sessionStorage.getItem('sorteio_clicked') === 'true') return;
+            if (clickedSorteio) return;
             if (isAuto && bubbleCount >= maxBubbles) return;
             if (isBubbleOpen) return;
 
             // Incrementa contagem se for exibição automática
             if (isAuto) {
                 bubbleCount++;
-                saveSession();
             }
 
             // Exibir visualmente
@@ -424,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(autoHideTimeout);
 
             // AGENDAR A PRÓXIMA APARIÇÃO AQUI — apenas se a ocultação veio do fluxo automático/manual legítimo
-            if (bubbleCount < maxBubbles && sessionStorage.getItem('sorteio_clicked') !== 'true') {
+            if (bubbleCount < maxBubbles && !clickedSorteio) {
                 clearTimeout(nextTriggerTimeout);
                 
                 // Intervalo: 20s para as 4 primeiras, 90s depois
@@ -436,9 +404,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Clique no balão -> navega localmente para sorteio.html
+        // Clique no balão -> navega localmente para sorteio.html e desativa para esta exibição atual na Home
         bubble.addEventListener('click', (e) => {
             if (e.target.closest('#sorteio-bubble-close')) return;
+            
+            clickedSorteio = true;
             
             // Oculta e para os timers de vez localmente
             bubble.classList.remove('active');
@@ -459,8 +429,9 @@ document.addEventListener('DOMContentLoaded', () => {
             esconderBalao(true);
         });
 
-        // Clique no botão flutuante direto -> para os timers de vez localmente
+        // Clique no botão flutuante direto -> desativa para esta exibição atual na Home
         sorteioFab.addEventListener('click', () => {
+            clickedSorteio = true;
             bubble.classList.remove('active');
             sorteioFab.classList.remove('pulse-intense');
             isBubbleOpen = false;
@@ -470,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hover no botão flutuante -> mostra imediatamente se estiver fechado
         sorteioFab.addEventListener('mouseenter', () => {
-            if (!isBubbleOpen && sessionStorage.getItem('sorteio_clicked') !== 'true') {
+            if (!isBubbleOpen && !clickedSorteio) {
                 // Hover não incrementa o bubbleCount e exibe o balão
                 clearTimeout(nextTriggerTimeout);
                 mostrarBalao(false); 
@@ -478,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Primeiro agendamento automático após 5 segundos
-        if (sessionStorage.getItem('sorteio_clicked') !== 'true' && bubbleCount < maxBubbles) {
+        if (!clickedSorteio && bubbleCount < maxBubbles) {
             nextTriggerTimeout = setTimeout(() => {
                 mostrarBalao(true);
             }, 5000);
