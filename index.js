@@ -321,6 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(finalUrl, '_blank', 'noopener,noreferrer');
         });
     }
+
+    // 11.5 ESCUTA GLOBAL PARA MARCAR CONVERSÃO DO SORTEIO APENAS NO CLIQUE REAL DE PARTICIPAR
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link && link.href && link.href.includes('5FL4EQNQJIX7L1')) {
+            sessionStorage.setItem('sorteio_clicked', 'true');
+        }
+    });
+
     // 12. BALÃO FLUTUANTE DE SORTEIO (CRISP STYLE - APENAS SE SORTEIO-FAB EXISTIR)
     const sorteioFab = document.getElementById('sorteio-fab');
     if (sorteioFab) {
@@ -371,17 +380,12 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('sorteio_bubble_shows', bubbleCount);
         };
 
-        const markAsConverted = () => {
-            clickedSorteio = true;
-            sessionStorage.setItem('sorteio_clicked', 'true');
-        };
-
         // Inicialização imediata das variáveis de sessão
         initSession();
 
         // Função para mostrar o balão
         const mostrarBalao = (isAuto = true) => {
-            if (clickedSorteio) return;
+            if (sessionStorage.getItem('sorteio_clicked') === 'true') return;
             if (isAuto && bubbleCount >= maxBubbles) return;
             if (isBubbleOpen) return;
 
@@ -420,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(autoHideTimeout);
 
             // AGENDAR A PRÓXIMA APARIÇÃO AQUI — apenas se a ocultação veio do fluxo automático/manual legítimo
-            if (bubbleCount < maxBubbles && !clickedSorteio) {
+            if (bubbleCount < maxBubbles && sessionStorage.getItem('sorteio_clicked') !== 'true') {
                 clearTimeout(nextTriggerTimeout);
                 
                 // Intervalo: 20s para as 4 primeiras, 90s depois
@@ -432,19 +436,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Clique no balão -> navega para sorteio.html e marca como convertido
+        // Clique no balão -> navega localmente para sorteio.html
         bubble.addEventListener('click', (e) => {
             if (e.target.closest('#sorteio-bubble-close')) return;
             
-            markAsConverted();
-            
-            // Oculta e para os timers de vez
+            // Oculta e para os timers de vez localmente
             bubble.classList.remove('active');
             sorteioFab.classList.remove('pulse-intense');
             isBubbleOpen = false;
             clearTimeout(autoHideTimeout);
             clearTimeout(nextTriggerTimeout);
-            window.open('https://wa.me/message/5FL4EQNQJIX7L1?text=Ol%C3%A1!%20Quero%20participar%20do%20sorteio%20do%20PC%20Gamer!', '_blank', 'noopener,noreferrer');
+
+            window.location.href = 'sorteio.html';
         });
 
         // Clique no X -> fecha o balão e agenda a próxima
@@ -456,9 +459,8 @@ document.addEventListener('DOMContentLoaded', () => {
             esconderBalao(true);
         });
 
-        // Clique no botão flutuante direto -> marca como convertido (não exibe mais)
+        // Clique no botão flutuante direto -> para os timers de vez localmente
         sorteioFab.addEventListener('click', () => {
-            markAsConverted();
             bubble.classList.remove('active');
             sorteioFab.classList.remove('pulse-intense');
             isBubbleOpen = false;
@@ -468,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hover no botão flutuante -> mostra imediatamente se estiver fechado
         sorteioFab.addEventListener('mouseenter', () => {
-            if (!isBubbleOpen && !clickedSorteio) {
+            if (!isBubbleOpen && sessionStorage.getItem('sorteio_clicked') !== 'true') {
                 // Hover não incrementa o bubbleCount e exibe o balão
                 clearTimeout(nextTriggerTimeout);
                 mostrarBalao(false); 
@@ -476,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Primeiro agendamento automático após 5 segundos
-        if (!clickedSorteio && bubbleCount < maxBubbles) {
+        if (sessionStorage.getItem('sorteio_clicked') !== 'true' && bubbleCount < maxBubbles) {
             nextTriggerTimeout = setTimeout(() => {
                 mostrarBalao(true);
             }, 5000);
