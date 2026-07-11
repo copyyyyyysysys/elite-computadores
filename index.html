@@ -1113,8 +1113,564 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- BOTÃO DE VER TODAS AS AVALIAÇÕES -->
+                <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; width: 100%;">
+                    <button id="open-reviews-btn" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-weight: 600; cursor: pointer; border-radius: var(--radius-md); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main); transition: var(--transition-smooth);" onmouseover="this.style.borderColor='var(--neon-cyan)'; this.style.boxShadow='0 0 15px rgba(0, 255, 163, 0.15)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.boxShadow='none';">
+                        <i data-lucide="message-square" style="width: 16px; height: 16px; color: var(--neon-cyan);"></i>
+                        Ver todas as avaliações
+                    </button>
+                </div>
             </div>
         </section>
+
+        <!-- MODAL MOSAICO DE AVALIAÇÕES (COMPLETO COM 15 DEPOIMENTOS REAIS) -->
+        <div id="reviews-modal" class="reviews-modal">
+            <div class="reviews-modal-backdrop" id="reviews-modal-backdrop"></div>
+            <div class="reviews-modal-content">
+                <div class="reviews-modal-header">
+                    <div class="reviews-modal-title-group">
+                        <h2 class="reviews-modal-title">
+                            <i data-lucide="message-square" style="width: 20px; height: 20px; color: var(--neon-cyan);"></i>
+                            Mosaico de Avaliações
+                        </h2>
+                        <span class="reviews-modal-subtitle">+5.000 clientes satisfeitos - prints reais de conversas</span>
+                    </div>
+                    <button class="reviews-modal-close-btn" id="reviews-modal-close">&times;</button>
+                </div>
+                <div class="reviews-modal-body">
+                    <div class="reviews-modal-grid">
+                        
+                        <!-- Card 1: Adriano M. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/adriano.jpg" alt="Adriano M." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>A</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Adriano M.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> PC Gamer RTX 3060 + Z690
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Entrega super rápida e montagem impecável. O PC ficou perfeito para meus jogos e trabalho, excelente atendimento!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed1.PNG" alt="Feedback WhatsApp Adriano M." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Tiago S. (Família Souza) -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/tiago-s.jpg" alt="Família Souza" class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>T</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Família Souza</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> PC Gamer Completo
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Mais um sonho realizado! Atendimento impecável da loja, levamos o PC novinho pra casa. Recomendo demais!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed2.PNG" alt="Feedback WhatsApp Família Souza" class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Lucas V. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/lucas.jpg" alt="Cliente 32" class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>L</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Cliente 32</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Mouse Attack Shark X11
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Chegou o mouse da Attack Shark. 79 reais valeu muito a pena. O atendimento de vocês foi muito transparente do início ao fim!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed3.PNG" alt="Feedback WhatsApp Cliente 32" class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: André L. (Rafael P.) -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/andre.jpg" alt="Rafael P." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>R</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Rafael P.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Mouse Logitech PRO X2
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Rapaz, tão de parabéns de verdade! Logitech PRO X2 Superstrike chegou certinho, embalagem perfeita."
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed4.PNG" alt="Feedback WhatsApp Rafael P." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Vulgo FK (Gabriel S.) -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/gabriel-s.jpg" alt="Vulgo FK" class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>V</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Vulgo FK</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Setup Dual Monitor
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Aí sim em irmão, show de bola! Setup com 2 monitores ficou insano, máquina monstro."
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed5.PNG" alt="Feedback WhatsApp Vulgo FK" class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Matheus C. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/rodrigo.jpg" alt="Matheus C." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>M</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Matheus C.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Setup Gamer Red Fans
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Acabei de montar, olha o horário kkk. Vocês estão de parabéns, belo atendimento e a entrega foi super rápida!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed7.PNG" alt="Feedback WhatsApp Matheus C." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Sandra R. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/sandra.jpg" alt="Sandra R." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>S</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Sandra R.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> PC Gamer Personalizado
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Oii meninos! Passando para dar um feedback pelo serviço de vocês. A máquina ficou maravilhosa, tudo funcionando perfeitamente, meu filho amou. Muito obrigada pelo atendimento também, sempre muito dedicados e atenciosos. Ganhou uma cliente fiel."
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed6.PNG" alt="Feedback WhatsApp Sandra R." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 8: Carla S. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/carla.jpg" alt="Carla S." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>C</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Carla S.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Setup Gamer Razer + Curvo
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Meu filho adorou o presente! O setup completo ficou incrível, a montagem impecável e o suporte de vocês foi sensacional!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed8.PNG" alt="Feedback WhatsApp Carla S." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 9: Bruno K. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/BRUNO K.jpg" alt="Bruno K." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>B</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Bruno K.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> PC Gamer Water Cooled
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Montagem impecável, gerenciamento de cabos excelente e performance de outro mundo. O water cooler segura a temperatura perfeitamente!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed9.PNG" alt="Feedback WhatsApp Bruno K." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 10: Rodrigo T. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/RODRIGO.jpg" alt="Rodrigo T." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>R</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Rodrigo T.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Workstation de Edição
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Essa maquina ta aqui mandando ver no trabalho kkk. Vai vendendo dessa daí pq ela aguenta firme o trabalho e n trava nd, com programas de edições eu tenho 7 aqui instalados e n perde em nd"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed10.PNG" alt="Feedback WhatsApp Rodrigo T." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 11: Patrícia M. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/PATRICIA M.jpg" alt="Patrícia M." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>P</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Patrícia M.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Atendimento Premium
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Eu que te agradeço. Nunca fui atendida tão bem, muito obrigada mesmo"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed11.jpg" alt="Feedback WhatsApp Patrícia M." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 12: José Vitor -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/jose.jpg" alt="José Vitor" class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>J</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">José Vitor</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Montagem e Entrega Rápida
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Serviço de qualidade, entregaram o meu computador muito rápido. Preço justo, muito atencioso. Recomendo para todos"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed12.jpg" alt="Feedback Google José Vitor" class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 13: Gabriel S. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/GABRIEL S.jpg" alt="Gabriel S." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>G</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Gabriel S.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Monitor Alienware 240Hz
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Boa noite chefe. O monitor chegou certinho aqui. Só agradece. Desculpa por mandar várias mensagens, mas sabe como é né."
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed13.png" alt="Feedback WhatsApp Gabriel S." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 14: Ricardo L. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/ricardo 2.jpg" alt="Ricardo L." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>R</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Ricardo L.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> PC Gamer Premium
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "chegou tudo certinho e o atendimento foi perfeito tambem. meu filho ja esta jogando no computador dele, obrigado meus amigos!!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed 14.PNG" alt="Feedback Discord Ricardo L." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 15: Ricardo O. -->
+                        <div class="review-slide">
+                            <div class="review-card-top" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; width: 100%;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <img src="imgs/avatars/ricardo.jpg" alt="Ricardo O." class="review-avatar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); flex-shrink: 0;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2244%22 height=%2244%22 viewBox=%220 0 44 44%22><circle cx=%2222%22 cy=%2222%22 r=%2222%22 fill=%22%232563eb%22/><text x=%2250%%22 y=%2255%%22 fill=%22white%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22>R</text></svg>'">
+                                    <div>
+                                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                            <h3 class="review-author" style="margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em;">Ricardo O.</h3>
+                                            <span style="font-size: 0.55rem; font-weight: 700; color: #22c55e; background-color: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); padding: 1px 4px; border-radius: var(--radius-sm); text-transform: uppercase;">Cliente Verificado</span>
+                                        </div>
+                                        <span class="review-product" style="font-size: 0.65rem; color: var(--neon-cyan); display: flex; align-items: center; gap: 4px; font-weight: 600; margin-top: 2px;">
+                                            <i data-lucide="tag" class="icon-xs" style="width: 10px; height: 10px;"></i> Placa de Vídeo RTX 3080 Ti
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="stars-row" style="display: flex; gap: 2px; color: #eab308; margin-top: 4px;">
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                    <i data-lucide="star" class="star-filled" style="width: 12px; height: 12px; fill: currentColor;"></i>
+                                </div>
+                            </div>
+                            <blockquote class="review-quote" style="margin: 12px 0 16px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); font-style: italic; min-height: 48px;">
+                                "Natal chegando mais cedo pra alguns! Placa de vídeo monstra, atendimento impecável e entrega rápida. Recomendo muito a Elite Computadores!"
+                            </blockquote>
+                            <div class="review-feed-container" style="width: 100%; height: 180px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--bg-secondary); margin-top: auto; position: relative;">
+                                <img src="imgs/feeds/feed7.PNG" alt="Feedback WhatsApp Ricardo O." class="review-feed-img" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform 0.3s ease;" loading="lazy">
+                                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); padding: 4px 8px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 4px; pointer-events: none; border: 1px solid rgba(255,255,255,0.1);">
+                                    <i data-lucide="zoom-in" style="width: 10px; height: 10px; color: var(--neon-cyan);"></i>
+                                    <span style="font-size: 0.55rem; color: #fff; font-weight: 500;">Ampliar</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- FAQ SECTION (ACORDEÃO DÚVIDAS OPERACIONAIS) -->
         <section class="faq-section" id="faq">
@@ -1336,33 +1892,73 @@
         </div>
     </div>
 
-    <!-- Script Auxiliar para Lightbox de Feedbacks -->
+    <!-- Script Auxiliar para Lightbox de Feedbacks e Modal de Avaliações -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('lightbox-modal');
-            const modalImg = document.getElementById('lightbox-img');
-            const closeBtn = document.getElementById('lightbox-close');
+            // --- LIGHTBOX DE FEEDBACKS ---
+            const lightboxModal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
 
             document.querySelectorAll('.review-feed-img').forEach(img => {
                 img.addEventListener('click', () => {
-                    modalImg.src = img.src;
-                    modal.classList.add('active');
+                    lightboxImg.src = img.src;
+                    lightboxModal.classList.add('active');
                 });
             });
 
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    modal.classList.remove('active');
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', () => {
+                    lightboxModal.classList.remove('active');
                 });
             }
 
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
+            if (lightboxModal) {
+                lightboxModal.addEventListener('click', (e) => {
+                    if (e.target === lightboxModal) {
+                        lightboxModal.classList.remove('active');
                     }
                 });
             }
+
+            // --- MODAL DE AVALIAÇÕES COMPLETO ---
+            const reviewsModal = document.getElementById('reviews-modal');
+            const openReviewsBtn = document.getElementById('open-reviews-btn');
+            const closeReviewsBtn = document.getElementById('reviews-modal-close');
+            const reviewsBackdrop = document.getElementById('reviews-modal-backdrop');
+
+            if (openReviewsBtn && reviewsModal) {
+                openReviewsBtn.addEventListener('click', () => {
+                    reviewsModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Impede rolagem do fundo
+                });
+            }
+
+            const closeReviews = () => {
+                if (reviewsModal) {
+                    reviewsModal.classList.remove('active');
+                    document.body.style.overflow = ''; // Restaura rolagem
+                }
+            };
+
+            if (closeReviewsBtn) {
+                closeReviewsBtn.addEventListener('click', closeReviews);
+            }
+
+            if (reviewsBackdrop) {
+                reviewsBackdrop.addEventListener('click', closeReviews);
+            }
+
+            // Fechar modal ao pressionar ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (lightboxModal && lightboxModal.classList.contains('active')) {
+                        lightboxModal.classList.remove('active');
+                    } else if (reviewsModal && reviewsModal.classList.contains('active')) {
+                        closeReviews();
+                    }
+                }
+            });
         });
     </script>
 

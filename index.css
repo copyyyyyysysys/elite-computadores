@@ -3561,3 +3561,177 @@ img {
     }
 }
 
+/* ==========================================================================
+   PAINEL DE AVALIAÇÕES COMPLETO (MODAL MOSAICO DE FEEDBACKS)
+   ========================================================================== */
+
+.reviews-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s;
+    visibility: hidden;
+}
+
+.reviews-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.reviews-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 7, 9, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.reviews-modal-content {
+    position: relative;
+    z-index: 2110;
+    width: 92%;
+    max-width: 1200px;
+    max-height: 85vh;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 85, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.96);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reviews-modal.active .reviews-modal-content {
+    transform: scale(1);
+}
+
+.reviews-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.reviews-modal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reviews-modal-title {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reviews-modal-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.reviews-modal-close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    line-height: 1;
+    padding-bottom: 4px;
+}
+
+.reviews-modal-close-btn:hover {
+    background-color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+    color: #000;
+    transform: scale(1.05);
+}
+
+.reviews-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.reviews-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .reviews-modal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .reviews-modal-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.reviews-modal-grid .review-slide {
+    width: 100% !important;
+    margin: 0 !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.reviews-modal-grid .review-slide:hover {
+    border-color: rgba(255, 85, 0, 0.2) !important;
+    transform: translateY(-2px);
+}
+
+/* Garante rolagem suave do modal */
+.reviews-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+.reviews-modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.reviews-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 85, 0, 0.2);
+    border-radius: 3px;
+}
+.reviews-modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-cyan);
+}
+
+
