@@ -444,8 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isBubbleOpen = false;
             clearTimeout(autoHideTimeout);
             clearTimeout(nextTriggerTimeout);
-
-            window.location.href = 'sorteio.html';
+            window.open('https://wa.me/message/5FL4EQNQJIX7L1?text=Ol%C3%A1!%20Quero%20participar%20do%20sorteio%20do%20PC%20Gamer!', '_blank', 'noopener,noreferrer');
         });
 
         // Clique no X -> fecha o balão e agenda a próxima
