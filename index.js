@@ -456,4 +456,64 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- GOOGLE REVIEWS CAROUSEL ---
+    const googleCarousel = document.querySelector('.google-reviews-carousel');
+    const googlePrevBtn = document.querySelector('.google-carousel-btn.prev');
+    const googleNextBtn = document.querySelector('.google-carousel-btn.next');
+
+    if (googleCarousel && googlePrevBtn && googleNextBtn) {
+        googleNextBtn.addEventListener('click', () => {
+            const card = googleCarousel.querySelector('.google-review-card');
+            if (card) {
+                const cardWidth = card.offsetWidth;
+                const gap = 20;
+                const scrollAmount = cardWidth + gap;
+                const maxScrollLeft = googleCarousel.scrollWidth - googleCarousel.clientWidth;
+                
+                if (googleCarousel.scrollLeft >= maxScrollLeft - 10) {
+                    googleCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    googleCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        });
+
+        googlePrevBtn.addEventListener('click', () => {
+            const card = googleCarousel.querySelector('.google-review-card');
+            if (card) {
+                const cardWidth = card.offsetWidth;
+                const gap = 20;
+                const scrollAmount = cardWidth + gap;
+                
+                if (googleCarousel.scrollLeft <= 10) {
+                    const maxScrollLeft = googleCarousel.scrollWidth - googleCarousel.clientWidth;
+                    googleCarousel.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+                } else {
+                    googleCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            }
+        });
+    }
+
+    // --- SCROLL REVEAL ANIMATION OBSERVER ---
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    if (revealElements.length > 0) {
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('visible'));
+        }
+    }
+
 });
