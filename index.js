@@ -461,39 +461,106 @@ document.addEventListener('DOMContentLoaded', () => {
     const googlePrevBtn = document.querySelector('.google-carousel-btn.prev');
     const googleNextBtn = document.querySelector('.google-carousel-btn.next');
 
-    if (googleCarousel && googlePrevBtn && googleNextBtn) {
-        googleNextBtn.addEventListener('click', () => {
+    if (googleCarousel) {
+        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let autoScrollTimer = null;
+        let resumeTimer = null;
+        let isUserInteracting = false;
+
+        const scrollToNext = () => {
             const card = googleCarousel.querySelector('.google-review-card');
-            if (card) {
-                const cardWidth = card.offsetWidth;
-                const gap = 20;
-                const scrollAmount = cardWidth + gap;
+            if (!card) return;
+            const cardWidth = card.offsetWidth;
+            const gap = 20;
+            const scrollAmount = cardWidth + gap;
+            const maxScrollLeft = googleCarousel.scrollWidth - googleCarousel.clientWidth;
+
+            if (googleCarousel.scrollLeft >= maxScrollLeft - 10) {
+                googleCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                googleCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        };
+
+        const scrollToPrev = () => {
+            const card = googleCarousel.querySelector('.google-review-card');
+            if (!card) return;
+            const cardWidth = card.offsetWidth;
+            const gap = 20;
+            const scrollAmount = cardWidth + gap;
+
+            if (googleCarousel.scrollLeft <= 10) {
                 const maxScrollLeft = googleCarousel.scrollWidth - googleCarousel.clientWidth;
-                
-                if (googleCarousel.scrollLeft >= maxScrollLeft - 10) {
-                    googleCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    googleCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
+                googleCarousel.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+            } else {
+                googleCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        };
+
+        if (googleNextBtn) {
+            googleNextBtn.addEventListener('click', () => {
+                scrollToNext();
+                pauseAndScheduleResume();
+            });
+        }
+
+        if (googlePrevBtn) {
+            googlePrevBtn.addEventListener('click', () => {
+                scrollToPrev();
+                pauseAndScheduleResume();
+            });
+        }
+
+        const getDelay = () => (window.innerWidth <= 768 ? 5000 : 6000);
+
+        const startAutoScroll = () => {
+            if (isReducedMotion || autoScrollTimer || isUserInteracting) return;
+            autoScrollTimer = setInterval(() => {
+                scrollToNext();
+            }, getDelay());
+        };
+
+        const stopAutoScroll = () => {
+            if (autoScrollTimer) {
+                clearInterval(autoScrollTimer);
+                autoScrollTimer = null;
+            }
+        };
+
+        const pauseAndScheduleResume = () => {
+            isUserInteracting = true;
+            stopAutoScroll();
+            if (resumeTimer) clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(() => {
+                isUserInteracting = false;
+                startAutoScroll();
+            }, 10000);
+        };
+
+        // Desktop Hover Pause
+        googleCarousel.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) {
+                isUserInteracting = true;
+                stopAutoScroll();
             }
         });
 
-        googlePrevBtn.addEventListener('click', () => {
-            const card = googleCarousel.querySelector('.google-review-card');
-            if (card) {
-                const cardWidth = card.offsetWidth;
-                const gap = 20;
-                const scrollAmount = cardWidth + gap;
-                
-                if (googleCarousel.scrollLeft <= 10) {
-                    const maxScrollLeft = googleCarousel.scrollWidth - googleCarousel.clientWidth;
-                    googleCarousel.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
-                } else {
-                    googleCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                }
+        googleCarousel.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) {
+                isUserInteracting = false;
+                startAutoScroll();
             }
         });
+
+        // Mobile Touch Interaction
+        googleCarousel.addEventListener('touchstart', () => {
+            pauseAndScheduleResume();
+        }, { passive: true });
+
+        // Start initial auto scroll
+        startAutoScroll();
     }
+
 
     // --- SCROLL REVEAL ANIMATION OBSERVER ---
     const revealElements = document.querySelectorAll('.scroll-reveal');
