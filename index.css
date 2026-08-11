@@ -2102,6 +2102,35 @@ img {
     height: 16px;
 }
 
+.footer-insta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(225, 48, 108, 0.05));
+    border: 1px solid rgba(225, 48, 108, 0.3);
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #e1306c;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    width: fit-content;
+}
+
+.footer-insta-btn:hover {
+    background: linear-gradient(135deg, rgba(225, 48, 108, 0.25), rgba(225, 48, 108, 0.1));
+    border-color: #e1306c;
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.2);
+}
+
+.footer-insta-btn svg,
+.footer-insta-btn i {
+    width: 16px;
+    height: 16px;
+    color: #e1306c;
+}
+
 /* --- Seção Meio: Pagamento + Segurança --- */
 .footer-badges-section {
     max-width: 1200px;
