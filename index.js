@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const conversionButtons = document.querySelectorAll('.wpp-conversion-btn');
     conversionButtons.forEach(button => {
         button.addEventListener('click', (e) => {
+            // Se já for um elemento <a> com href direto para wa.me, permite navegação nativa do navegador
+            if (button.tagName === 'A' && button.hasAttribute('href') && button.getAttribute('href').includes('wa.me')) {
+                return;
+            }
             e.preventDefault();
             e.stopPropagation();
             const category = button.getAttribute('data-category');
@@ -226,20 +230,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+            // Se for um link <a> direto para o WhatsApp, permite navegação nativa do navegador
+            if (btn.tagName === 'A' && btn.hasAttribute('href') && btn.getAttribute('href').includes('wa.me')) {
+                return;
+            }
             const filter = btn.getAttribute('data-filter');
-            if (filter && filterMap[filter]) {
-                redirectToWhatsApp(filterMap[filter]);
-            } else if (filter === 'all') {
-                // Rola suave até a vitrine de categorias na home ou redireciona
+            if (filter === 'all') {
+                e.preventDefault();
+                e.stopPropagation();
                 const target = document.getElementById('vitrine');
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 } else {
                     window.location.href = "index.html#vitrine";
                 }
+            } else if (filter && filterMap[filter]) {
+                e.preventDefault();
+                e.stopPropagation();
+                redirectToWhatsApp(filterMap[filter]);
             } else {
+                e.preventDefault();
+                e.stopPropagation();
                 redirectToWhatsApp();
             }
         });

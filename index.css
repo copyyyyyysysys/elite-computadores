@@ -938,6 +938,7 @@ img {
     cursor: pointer;
     transition: var(--transition-smooth);
     box-shadow: var(--shadow-sm);
+    text-decoration: none;
 }
 
 .quick-dept-card:hover {
