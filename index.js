@@ -583,4 +583,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- 13. BANNER DE CONSENTIMENTO LGPD / COOKIES ---
+    const lgpdBanner = document.getElementById('lgpd-cookie-banner');
+    const lgpdAcceptBtn = document.getElementById('lgpd-accept-btn');
+
+    if (lgpdBanner && lgpdAcceptBtn) {
+        const hasConsented = localStorage.getItem('lgpd_cookie_consent');
+        if (!hasConsented) {
+            setTimeout(() => {
+                lgpdBanner.classList.add('active');
+            }, 1000);
+        }
+
+        lgpdAcceptBtn.addEventListener('click', () => {
+            localStorage.setItem('lgpd_cookie_consent', 'true');
+            lgpdBanner.classList.remove('active');
+        });
+    }
+
 });
