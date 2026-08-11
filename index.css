@@ -2126,9 +2126,11 @@ img {
 
 .footer-insta-btn svg,
 .footer-insta-btn i {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     color: #e1306c;
+    stroke: #e1306c;
+    flex-shrink: 0;
 }
 
 /* --- Seção Meio: Pagamento + Segurança --- */
