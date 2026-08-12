@@ -40,14 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Função de redirecionamento seguro para o WhatsApp
-    const redirectToWhatsApp = (category) => {
-        if (category && whatsappMessages[category]) {
-            const messageText = whatsappMessages[category];
-            const finalUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(messageText)}`;
-            window.open(finalUrl, '_blank', 'noopener,noreferrer');
-        } else {
-            window.open(whatsappBaseUrl, '_blank', 'noopener,noreferrer');
-        }
+    const redirectToWhatsApp = () => {
+        window.open(whatsappBaseUrl, '_blank', 'noopener,noreferrer');
     };
 
     // Configurar redirecionamento seguro nos botões de conversão (.wpp-conversion-btn)
@@ -256,14 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Barra de Busca: Transforma pesquisas em leads diretos do WhatsApp
+    // Barra de Busca: Direciona pesquisas para o WhatsApp oficial
     const handleSearchSubmit = () => {
-        const query = searchInput.value.trim();
-        if (query) {
-            const searchMessage = `Olá! Gostaria de consultar sobre a disponibilidade de: "${query}".`;
-            const finalUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(searchMessage)}`;
-            window.open(finalUrl, '_blank', 'noopener,noreferrer');
-        }
+        window.open(whatsappBaseUrl, '_blank', 'noopener,noreferrer');
     };
 
     if (searchInput) {
@@ -323,13 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rastreioForm && rastreioInput) {
         rastreioForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const val = rastreioInput.value.trim();
-            let text = "Olá! Quero rastrear meu pedido.";
-            if (val) {
-                text = `Olá! Quero rastrear meu pedido: ${val}`;
-            }
-            const finalUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(text)}`;
-            window.open(finalUrl, '_blank', 'noopener,noreferrer');
+            window.open(whatsappBaseUrl, '_blank', 'noopener,noreferrer');
         });
     }
 
