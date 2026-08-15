@@ -627,11 +627,7 @@
 
         function pad(n) { return String(n).padStart(2, '0'); }
 
-        function formatarDataHora(data) {
-            return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear() + ' — ' + pad(data.getHours()) + ':' + pad(data.getMinutes());
-        }
-
-        function formatarDataSo(data) {
+        function formatarData(data) {
             return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear();
         }
 
@@ -646,7 +642,7 @@
 
         // --- SVG ICONS ---
         var SVG_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
-        var SVG_TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>';
+        var SVG_TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>';
         var SVG_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
         var SVG_HOME = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
         var SVG_PACKAGE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>';
@@ -703,17 +699,17 @@
                     step.classList.add('rastreio-step-complete');
                     if (marker) { marker.innerHTML = SVG_CHECK; var p = marker.querySelector('.rastreio-marker-pulse'); if (p) p.remove(); }
                     if (badge) { badge.className = 'rastreio-timeline-badge rastreio-badge-complete'; badge.textContent = 'Concluído'; }
-                    if (dateEl) dateEl.innerHTML = calIcon + formatarDataHora(datas[s]);
+                    if (dateEl) dateEl.innerHTML = calIcon + formatarData(datas[s]);
                 } else if (st === 'andamento') {
                     step.classList.add('rastreio-step-current');
                     if (marker) marker.innerHTML = ETAPA_SVGS[s] + '<div class="rastreio-marker-pulse"></div>';
                     if (badge) { badge.className = 'rastreio-timeline-badge rastreio-badge-current'; badge.textContent = 'Em andamento'; }
-                    if (dateEl) dateEl.innerHTML = calIcon + formatarDataHora(datas[s]);
+                    if (dateEl) dateEl.innerHTML = calIcon + formatarData(datas[s]);
                 } else {
                     step.classList.add('rastreio-step-pending');
                     if (marker) { marker.innerHTML = ETAPA_SVGS[s]; var p = marker.querySelector('.rastreio-marker-pulse'); if (p) p.remove(); }
                     if (badge) { badge.className = 'rastreio-timeline-badge rastreio-badge-pending'; badge.textContent = 'Previsão'; }
-                    if (dateEl) dateEl.innerHTML = calIcon + 'Previsão: ' + formatarDataSo(datas[s]);
+                    if (dateEl) dateEl.innerHTML = calIcon + 'Previsão: ' + formatarData(datas[s]);
                 }
             }
             if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -738,7 +734,7 @@
 
             // --- ATUALIZAR PREVISÃO DE ENTREGA ---
             var previsaoEl = document.getElementById('rastreio-previsao-data');
-            if (previsaoEl) previsaoEl.textContent = formatarDataSo(datas[4]);
+            if (previsaoEl) previsaoEl.textContent = formatarData(datas[4]);
 
             // --- ATUALIZAR BARRA DE PROGRESSO ---
             var progressoPontos = concluidas;
@@ -754,12 +750,11 @@
             }
 
             var etapasTextEl = document.getElementById('rastreio-progress-etapas');
-            if (etapasTextEl) etapasTextEl.textContent = concluidas + ' de 5 etapas conclu\u00eddas';
+            if (etapasTextEl) etapasTextEl.textContent = concluidas + ' de 5 etapas concluídas';
 
             var lastUpdateEl = document.getElementById('rastreio-last-update');
             if (lastUpdateEl) lastUpdateEl.innerHTML = '<i data-lucide="clock" class="icon-xs"></i> Atualizado agora';
 
-            // Re-renderizar ícones Lucide novamente para badge e update
             if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
