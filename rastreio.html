@@ -244,7 +244,7 @@
                             </div>
                         </div>
                         <div class="rastreio-result-header-right">
-                            <span class="rastreio-status-badge rastreio-status-transit">
+                            <span class="rastreio-status-badge rastreio-status-transit" id="rastreio-header-badge">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                                 Em Trânsito
                             </span>
@@ -271,14 +271,14 @@
                     <div class="rastreio-progress-section">
                         <div class="rastreio-progress-header">
                             <span class="rastreio-progress-label">Progresso da entrega</span>
-                            <span class="rastreio-progress-percent">80%</span>
+                            <span class="rastreio-progress-percent" id="rastreio-progress-percent">80%</span>
                         </div>
                         <div class="rastreio-progress-bar">
                             <div class="rastreio-progress-fill" id="rastreio-progress-fill"></div>
                         </div>
                         <div class="rastreio-progress-footer">
-                            <span>4 de 5 etapas concluídas</span>
-                            <span class="rastreio-last-update">
+                            <span id="rastreio-progress-etapas">4 de 5 etapas concluídas</span>
+                            <span class="rastreio-last-update" id="rastreio-last-update">
                                 <i data-lucide="clock" class="icon-xs"></i> Atualizado há 2 horas
                             </span>
                         </div>
@@ -584,16 +584,16 @@
     (function() {
         'use strict';
 
-        const CODIGO_VALIDO = 'LO1624288797UD';
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var CODIGO_VALIDO = 'LO1624288797UD';
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        const form = document.getElementById('rastreio-form');
-        const input = document.getElementById('rastreio-code-input');
-        const resultSection = document.getElementById('rastreio-result');
-        const errorSection = document.getElementById('rastreio-error');
-        const tryAgainBtn = document.getElementById('rastreio-try-again');
-        const progressFill = document.getElementById('rastreio-progress-fill');
-        const timeline = document.getElementById('rastreio-timeline');
+        var form = document.getElementById('rastreio-form');
+        var input = document.getElementById('rastreio-code-input');
+        var resultSection = document.getElementById('rastreio-result');
+        var errorSection = document.getElementById('rastreio-error');
+        var tryAgainBtn = document.getElementById('rastreio-try-again');
+        var progressFill = document.getElementById('rastreio-progress-fill');
+        var timeline = document.getElementById('rastreio-timeline');
 
         if (!form || !input) return;
 
@@ -611,7 +611,7 @@
             });
         }
 
-        // --- DATAS DINÂMICAS (CLIENT-SIDE) ---
+        // --- UTILIDADES DE DATA ---
         function adicionarDiasUteis(data, dias) {
             var resultado = new Date(data);
             var adicionados = 0;
@@ -625,139 +625,169 @@
             return resultado;
         }
 
-        function pad(n) {
-            return String(n).padStart(2, '0');
-        }
+        function pad(n) { return String(n).padStart(2, '0'); }
 
         function formatarDataHora(data) {
-            return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear() + ' \u2014 ' + pad(data.getHours()) + ':' + pad(data.getMinutes());
+            return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear() + ' — ' + pad(data.getHours()) + ':' + pad(data.getMinutes());
         }
 
         function formatarDataSo(data) {
             return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear();
         }
 
-        function injetarDatasDinamicas() {
-            var hoje = new Date();
-            var base = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+        // --- NOMES DAS ETAPAS ---
+        var ETAPA_NOMES = [
+            'Pedido Confirmado',
+            'Em Separação',
+            'Enviado',
+            'Em Trânsito',
+            'Entregue'
+        ];
 
-            // Etapa 1: Hoje — 09:32
-            var etapa1 = new Date(base);
-            etapa1.setHours(9, 32, 0);
+        // --- SVG ICONS ---
+        var SVG_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+        var SVG_TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>';
+        var SVG_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+        var SVG_HOME = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
+        var SVG_PACKAGE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>';
+        var SVG_BOX = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>';
 
-            // Etapa 2: Hoje — 14:15
-            var etapa2 = new Date(base);
-            etapa2.setHours(14, 15, 0);
+        var ETAPA_SVGS = [SVG_CHECK, SVG_PACKAGE, SVG_BOX, SVG_TRUCK, SVG_HOME];
 
-            // Etapa 3: +1 dia útil — 10:48
-            var etapa3 = adicionarDiasUteis(base, 1);
-            etapa3.setHours(10, 48, 0);
+        function determinarStatus(dataEtapa, agora) {
+            var margemMs = 2 * 60 * 60 * 1000;
+            var diffMs = dataEtapa.getTime() - agora.getTime();
+            if (diffMs <= 0) return 'concluido';
+            else if (diffMs <= margemMs) return 'andamento';
+            else return 'previsao';
+        }
 
-            // Etapa 4: +2 dias úteis — 06:22
-            var etapa4 = adicionarDiasUteis(base, 2);
-            etapa4.setHours(6, 22, 0);
+        function gerarDatasEStatus() {
+            var agora = new Date();
+            var base = new Date(agora.getFullYear(), agora.getMonth(), agora.getDate());
+            var etapa1 = new Date(base); etapa1.setHours(9, 32, 0);
+            var etapa2 = new Date(base); etapa2.setHours(14, 15, 0);
+            var etapa3 = adicionarDiasUteis(base, 1); etapa3.setHours(10, 48, 0);
+            var etapa4 = adicionarDiasUteis(base, 2); etapa4.setHours(6, 22, 0);
+            var etapa5 = adicionarDiasUteis(base, 4); etapa5.setHours(23, 59, 0);
 
-            // Etapa 5: +4 dias úteis (previsão, só data)
-            var etapa5 = adicionarDiasUteis(base, 4);
-
-            // Injetar nas etapas da timeline
+            var datas = [etapa1, etapa2, etapa3, etapa4, etapa5];
+            var statusList = [];
+            var concluidas = 0;
+            var emAndamentoIndex = -1;
             var calIcon = '<i data-lucide="calendar" class="icon-xs"></i> ';
 
-            var d1 = document.getElementById('rastreio-date-1');
-            if (d1) d1.innerHTML = calIcon + formatarDataHora(etapa1);
-
-            var d2 = document.getElementById('rastreio-date-2');
-            if (d2) d2.innerHTML = calIcon + formatarDataHora(etapa2);
-
-            var d3 = document.getElementById('rastreio-date-3');
-            if (d3) d3.innerHTML = calIcon + formatarDataHora(etapa3);
-
-            var d4 = document.getElementById('rastreio-date-4');
-            if (d4) d4.innerHTML = calIcon + formatarDataHora(etapa4);
-
-            var d5 = document.getElementById('rastreio-date-5');
-            if (d5) d5.innerHTML = calIcon + 'Previs\u00e3o: ' + formatarDataSo(etapa5);
-
-            // Injetar previsão no header do resultado
-            var previsaoEl = document.getElementById('rastreio-previsao-data');
-            if (previsaoEl) previsaoEl.textContent = formatarDataSo(etapa5);
-
-            // Re-renderizar ícones Lucide para os novos elementos
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+            for (var i = 0; i < datas.length; i++) {
+                var status = determinarStatus(datas[i], agora);
+                statusList.push(status);
+                if (status === 'concluido') concluidas++;
+                else if (status === 'andamento' && emAndamentoIndex === -1) emAndamentoIndex = i;
             }
+
+            var temFutura = statusList.some(function(s) { return s === 'previsao'; });
+            if (emAndamentoIndex === -1 && temFutura) {
+                for (var k = 0; k < statusList.length; k++) {
+                    if (statusList[k] === 'previsao') {
+                        statusList[k] = 'andamento';
+                        emAndamentoIndex = k;
+                        break;
+                    }
+                }
+            }
+
+            var steps = timeline.querySelectorAll('.rastreio-timeline-step');
+            for (var s = 0; s < steps.length; s++) {
+                var step = steps[s], st = statusList[s], dateEl = document.getElementById('rastreio-date-' + (s + 1)), badge = step.querySelector('.rastreio-timeline-badge'), marker = step.querySelector('.rastreio-timeline-marker');
+                step.classList.remove('rastreio-step-complete', 'rastreio-step-current', 'rastreio-step-pending');
+                if (st === 'concluido') {
+                    step.classList.add('rastreio-step-complete');
+                    if (marker) { marker.innerHTML = SVG_CHECK; var p = marker.querySelector('.rastreio-marker-pulse'); if (p) p.remove(); }
+                    if (badge) { badge.className = 'rastreio-timeline-badge rastreio-badge-complete'; badge.textContent = 'Concluído'; }
+                    if (dateEl) dateEl.innerHTML = calIcon + formatarDataHora(datas[s]);
+                } else if (st === 'andamento') {
+                    step.classList.add('rastreio-step-current');
+                    if (marker) marker.innerHTML = ETAPA_SVGS[s] + '<div class="rastreio-marker-pulse"></div>';
+                    if (badge) { badge.className = 'rastreio-timeline-badge rastreio-badge-current'; badge.textContent = 'Em andamento'; }
+                    if (dateEl) dateEl.innerHTML = calIcon + formatarDataHora(datas[s]);
+                } else {
+                    step.classList.add('rastreio-step-pending');
+                    if (marker) { marker.innerHTML = ETAPA_SVGS[s]; var p = marker.querySelector('.rastreio-marker-pulse'); if (p) p.remove(); }
+                    if (badge) { badge.className = 'rastreio-timeline-badge rastreio-badge-pending'; badge.textContent = 'Previsão'; }
+                    if (dateEl) dateEl.innerHTML = calIcon + 'Previsão: ' + formatarDataSo(datas[s]);
+                }
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // --- ATUALIZAR HEADER BADGE ---
+            var headerBadge = document.getElementById('rastreio-header-badge');
+            if (headerBadge) {
+                var badgeText = '';
+                var badgeClass = 'rastreio-status-badge rastreio-status-transit';
+                if (emAndamentoIndex >= 0) {
+                    badgeText = ETAPA_NOMES[emAndamentoIndex];
+                } else if (concluidas === 5) {
+                    badgeText = 'Entregue';
+                    badgeClass = 'rastreio-status-badge rastreio-status-delivered';
+                } else {
+                    badgeText = ETAPA_NOMES[Math.max(0, concluidas - 1)];
+                }
+                var badgeIcon = SVG_TRUCK.replace('viewBox', 'width="14" height="14" viewBox');
+                headerBadge.className = badgeClass;
+                headerBadge.innerHTML = badgeIcon + ' ' + badgeText;
+            }
+
+            // --- ATUALIZAR PREVISÃO DE ENTREGA ---
+            var previsaoEl = document.getElementById('rastreio-previsao-data');
+            if (previsaoEl) previsaoEl.textContent = formatarDataSo(datas[4]);
+
+            // --- ATUALIZAR BARRA DE PROGRESSO ---
+            var progressoPontos = concluidas;
+            if (emAndamentoIndex >= 0) progressoPontos += 0.5;
+            var progressoPct = Math.round((progressoPontos / 5) * 100);
+
+            var progressPercentEl = document.getElementById('rastreio-progress-percent');
+            if (progressPercentEl) progressPercentEl.textContent = progressoPct + '%';
+
+            if (progressFill) {
+                progressFill.style.width = '0%';
+                setTimeout(function() { progressFill.style.width = progressoPct + '%'; }, prefersReducedMotion ? 0 : 300);
+            }
+
+            var etapasTextEl = document.getElementById('rastreio-progress-etapas');
+            if (etapasTextEl) etapasTextEl.textContent = concluidas + ' de 5 etapas conclu\u00eddas';
+
+            var lastUpdateEl = document.getElementById('rastreio-last-update');
+            if (lastUpdateEl) lastUpdateEl.innerHTML = '<i data-lucide="clock" class="icon-xs"></i> Atualizado agora';
+
+            // Re-renderizar ícones Lucide novamente para badge e update
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function rastrear() {
             var codigo = input.value.trim().toUpperCase().replace(/\s+/g, '');
-
-            if (!codigo) {
-                input.focus();
-                return;
-            }
-
-            // Esconder ambos os estados primeiro
-            resultSection.style.display = 'none';
-            errorSection.style.display = 'none';
-
-            if (codigo === CODIGO_VALIDO) {
-                mostrarResultado();
-            } else {
-                mostrarErro();
-            }
+            if (!codigo) { input.focus(); return; }
+            resultSection.style.display = 'none'; errorSection.style.display = 'none';
+            if (codigo === CODIGO_VALIDO) mostrarResultado(); else mostrarErro();
         }
 
         function mostrarResultado() {
-            // Injetar datas dinâmicas ANTES de mostrar
-            injetarDatasDinamicas();
-
+            gerarDatasEStatus();
             resultSection.style.display = 'block';
-
-            // Scroll suave até o resultado
-            setTimeout(function() {
-                resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-
-            // Animar barra de progresso
-            if (progressFill) {
-                progressFill.style.width = '0%';
-                setTimeout(function() {
-                    progressFill.style.width = '80%';
-                }, prefersReducedMotion ? 0 : 300);
-            }
-
-            // Animar timeline em cascata
-            if (timeline && !prefersReducedMotion) {
-                animarTimeline();
-            } else if (timeline) {
-                // Sem animação, mostrar tudo de uma vez
-                var steps = timeline.querySelectorAll('.rastreio-timeline-step');
-                steps.forEach(function(s) { s.classList.add('rastreio-step-visible'); });
-            }
+            setTimeout(function() { resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+            if (timeline && !prefersReducedMotion) animarTimeline();
+            else if (timeline) timeline.querySelectorAll('.rastreio-timeline-step').forEach(function(s) { s.classList.add('rastreio-step-visible'); });
         }
 
         function animarTimeline() {
             var steps = timeline.querySelectorAll('.rastreio-timeline-step');
-            
-            // Reset: esconder todas primeiro
             steps.forEach(function(s) { s.classList.remove('rastreio-step-visible'); });
-
-            // Revelar com delay em cascata
-            steps.forEach(function(step, index) {
-                setTimeout(function() {
-                    step.classList.add('rastreio-step-visible');
-                }, 300 * (index + 1));
-            });
+            steps.forEach(function(step, index) { setTimeout(function() { step.classList.add('rastreio-step-visible'); }, 300 * (index + 1)); });
         }
 
         function mostrarErro() {
             errorSection.style.display = 'block';
-            
-            setTimeout(function() {
-                errorSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
+            setTimeout(function() { errorSection.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
         }
-
     })();
     </script>
 
