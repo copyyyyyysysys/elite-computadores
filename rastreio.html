@@ -263,7 +263,7 @@
                         </div>
                         <div class="rastreio-detail-item">
                             <span class="rastreio-detail-label">Previsão de entrega</span>
-                            <span class="rastreio-detail-value rastreio-detail-highlight">18/07/2026</span>
+                            <span class="rastreio-detail-value rastreio-detail-highlight" id="rastreio-previsao-data">—</span>
                         </div>
                     </div>
 
@@ -323,8 +323,8 @@
                                 </div>
                                 <p class="rastreio-timeline-desc">Pagamento aprovado e pedido registrado no sistema</p>
                                 <div class="rastreio-timeline-meta">
-                                    <span class="rastreio-timeline-date">
-                                        <i data-lucide="calendar" class="icon-xs"></i> 14/07/2026 — 09:32
+                                    <span class="rastreio-timeline-date" id="rastreio-date-1">
+                                        <i data-lucide="calendar" class="icon-xs"></i> —
                                     </span>
                                 </div>
                             </div>
@@ -345,8 +345,8 @@
                                 </div>
                                 <p class="rastreio-timeline-desc">Produtos separados e embalados para envio</p>
                                 <div class="rastreio-timeline-meta">
-                                    <span class="rastreio-timeline-date">
-                                        <i data-lucide="calendar" class="icon-xs"></i> 14/07/2026 — 14:15
+                                    <span class="rastreio-timeline-date" id="rastreio-date-2">
+                                        <i data-lucide="calendar" class="icon-xs"></i> —
                                     </span>
                                 </div>
                             </div>
@@ -367,8 +367,8 @@
                                 </div>
                                 <p class="rastreio-timeline-desc">Pedido despachado para transportadora</p>
                                 <div class="rastreio-timeline-meta">
-                                    <span class="rastreio-timeline-date">
-                                        <i data-lucide="calendar" class="icon-xs"></i> 15/07/2026 — 10:48
+                                    <span class="rastreio-timeline-date" id="rastreio-date-3">
+                                        <i data-lucide="calendar" class="icon-xs"></i> —
                                     </span>
                                 </div>
                             </div>
@@ -390,8 +390,8 @@
                                 </div>
                                 <p class="rastreio-timeline-desc">Pacote em rota de entrega para o destino</p>
                                 <div class="rastreio-timeline-meta">
-                                    <span class="rastreio-timeline-date">
-                                        <i data-lucide="calendar" class="icon-xs"></i> 16/07/2026 — 06:22
+                                    <span class="rastreio-timeline-date" id="rastreio-date-4">
+                                        <i data-lucide="calendar" class="icon-xs"></i> —
                                     </span>
                                 </div>
                             </div>
@@ -410,8 +410,8 @@
                                 </div>
                                 <p class="rastreio-timeline-desc">Aguardando entrega no endereço de destino</p>
                                 <div class="rastreio-timeline-meta">
-                                    <span class="rastreio-timeline-date">
-                                        <i data-lucide="calendar" class="icon-xs"></i> Previsão: 18/07/2026
+                                    <span class="rastreio-timeline-date" id="rastreio-date-5">
+                                        <i data-lucide="calendar" class="icon-xs"></i> —
                                     </span>
                                 </div>
                             </div>
@@ -611,8 +611,85 @@
             });
         }
 
+        // --- DATAS DINÂMICAS (CLIENT-SIDE) ---
+        function adicionarDiasUteis(data, dias) {
+            var resultado = new Date(data);
+            var adicionados = 0;
+            while (adicionados < dias) {
+                resultado.setDate(resultado.getDate() + 1);
+                var dia = resultado.getDay();
+                if (dia !== 0 && dia !== 6) {
+                    adicionados++;
+                }
+            }
+            return resultado;
+        }
+
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function formatarDataHora(data) {
+            return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear() + ' \u2014 ' + pad(data.getHours()) + ':' + pad(data.getMinutes());
+        }
+
+        function formatarDataSo(data) {
+            return pad(data.getDate()) + '/' + pad(data.getMonth() + 1) + '/' + data.getFullYear();
+        }
+
+        function injetarDatasDinamicas() {
+            var hoje = new Date();
+            var base = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+
+            // Etapa 1: Hoje — 09:32
+            var etapa1 = new Date(base);
+            etapa1.setHours(9, 32, 0);
+
+            // Etapa 2: Hoje — 14:15
+            var etapa2 = new Date(base);
+            etapa2.setHours(14, 15, 0);
+
+            // Etapa 3: +1 dia útil — 10:48
+            var etapa3 = adicionarDiasUteis(base, 1);
+            etapa3.setHours(10, 48, 0);
+
+            // Etapa 4: +2 dias úteis — 06:22
+            var etapa4 = adicionarDiasUteis(base, 2);
+            etapa4.setHours(6, 22, 0);
+
+            // Etapa 5: +4 dias úteis (previsão, só data)
+            var etapa5 = adicionarDiasUteis(base, 4);
+
+            // Injetar nas etapas da timeline
+            var calIcon = '<i data-lucide="calendar" class="icon-xs"></i> ';
+
+            var d1 = document.getElementById('rastreio-date-1');
+            if (d1) d1.innerHTML = calIcon + formatarDataHora(etapa1);
+
+            var d2 = document.getElementById('rastreio-date-2');
+            if (d2) d2.innerHTML = calIcon + formatarDataHora(etapa2);
+
+            var d3 = document.getElementById('rastreio-date-3');
+            if (d3) d3.innerHTML = calIcon + formatarDataHora(etapa3);
+
+            var d4 = document.getElementById('rastreio-date-4');
+            if (d4) d4.innerHTML = calIcon + formatarDataHora(etapa4);
+
+            var d5 = document.getElementById('rastreio-date-5');
+            if (d5) d5.innerHTML = calIcon + 'Previs\u00e3o: ' + formatarDataSo(etapa5);
+
+            // Injetar previsão no header do resultado
+            var previsaoEl = document.getElementById('rastreio-previsao-data');
+            if (previsaoEl) previsaoEl.textContent = formatarDataSo(etapa5);
+
+            // Re-renderizar ícones Lucide para os novos elementos
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
         function rastrear() {
-            const codigo = input.value.trim().toUpperCase().replace(/\s+/g, '');
+            var codigo = input.value.trim().toUpperCase().replace(/\s+/g, '');
 
             if (!codigo) {
                 input.focus();
@@ -631,17 +708,20 @@
         }
 
         function mostrarResultado() {
+            // Injetar datas dinâmicas ANTES de mostrar
+            injetarDatasDinamicas();
+
             resultSection.style.display = 'block';
 
             // Scroll suave até o resultado
-            setTimeout(() => {
+            setTimeout(function() {
                 resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
 
             // Animar barra de progresso
             if (progressFill) {
                 progressFill.style.width = '0%';
-                setTimeout(() => {
+                setTimeout(function() {
                     progressFill.style.width = '80%';
                 }, prefersReducedMotion ? 0 : 300);
             }
@@ -651,20 +731,20 @@
                 animarTimeline();
             } else if (timeline) {
                 // Sem animação, mostrar tudo de uma vez
-                const steps = timeline.querySelectorAll('.rastreio-timeline-step');
-                steps.forEach(s => s.classList.add('rastreio-step-visible'));
+                var steps = timeline.querySelectorAll('.rastreio-timeline-step');
+                steps.forEach(function(s) { s.classList.add('rastreio-step-visible'); });
             }
         }
 
         function animarTimeline() {
-            const steps = timeline.querySelectorAll('.rastreio-timeline-step');
+            var steps = timeline.querySelectorAll('.rastreio-timeline-step');
             
             // Reset: esconder todas primeiro
-            steps.forEach(s => s.classList.remove('rastreio-step-visible'));
+            steps.forEach(function(s) { s.classList.remove('rastreio-step-visible'); });
 
             // Revelar com delay em cascata
-            steps.forEach((step, index) => {
-                setTimeout(() => {
+            steps.forEach(function(step, index) {
+                setTimeout(function() {
                     step.classList.add('rastreio-step-visible');
                 }, 300 * (index + 1));
             });
@@ -673,7 +753,7 @@
         function mostrarErro() {
             errorSection.style.display = 'block';
             
-            setTimeout(() => {
+            setTimeout(function() {
                 errorSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
         }
