@@ -2134,6 +2134,36 @@ img {
     flex-shrink: 0;
 }
 
+.footer-cnpj-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    width: fit-content;
+}
+
+.footer-cnpj-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+.footer-cnpj-btn svg,
+.footer-cnpj-btn i {
+    width: 16px;
+    height: 16px;
+    color: var(--neon-cyan);
+    flex-shrink: 0;
+}
+
 /* --- Seção Meio: Pagamento + Segurança --- */
 .footer-badges-section {
     max-width: 1200px;
