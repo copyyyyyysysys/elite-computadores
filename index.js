@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. MENSAGENS DO WHATSAPP (MAPEAMENTO CONTEXTUAL - CORREÇÃO 3)
-    const whatsappBaseUrl = "https://wa.me/message/K3VGZAWNVXH4L1";
+    const whatsappBaseUrl = "https://wa.me/message/5CZ6UQDIJD4SP1";
     
     const whatsappMessages = {
         "pcs-gamer": "Olá! Quero ver os PCs Gamer disponíveis.",
