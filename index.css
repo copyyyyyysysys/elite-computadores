@@ -457,6 +457,61 @@ img {
     stroke: #ffffff;
 }
 
+/* Header VIP Group Button */
+.header-vip-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: var(--radius-md);
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: var(--text-main);
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.header-vip-btn .header-vip-icon {
+    width: 17px;
+    height: 17px;
+    fill: #22c55e;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.header-vip-btn:hover {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.18) 0%, rgba(18, 140, 126, 0.25) 100%);
+    border-color: #22c55e;
+    color: #15803d;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.35);
+    transform: translateY(-1px);
+}
+
+.header-vip-btn:hover .header-vip-icon {
+    transform: scale(1.1);
+}
+
+.header-nav-vip-link {
+    color: #16a34a !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.header-nav-vip-link:hover {
+    color: #22c55e !important;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+}
+
 /* Header WhatsApp CTA - Green Focus */
 .header-wpp-cta {
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
@@ -871,6 +926,42 @@ img {
     flex-wrap: wrap;
 }
 
+/* Hero Actions - Cohesive 2-Row Layout */
+.slide-actions.hero-actions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 540px;
+    margin-top: 10px;
+}
+
+.hero-actions-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.hero-row-primary {
+    gap: 10px;
+}
+
+.hero-row-secondary {
+    gap: 10px;
+}
+
+.hero-row-primary .btn-hero-wpp,
+.hero-row-primary .btn-hero-sorteio {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.hero-row-secondary .btn-hero-insta,
+.hero-row-secondary .btn-hero-vip {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
 /* Fix invisible text in secondary button inside the dark banner */
 .promo-slide .btn-secondary {
     color: #ffffff !important;
@@ -883,13 +974,13 @@ img {
     border-color: #ffffff !important;
 }
 
-/* Hero Action Buttons - Destaque WhatsApp & Instagram */
+/* Hero Action Buttons - Destaque WhatsApp */
 .btn-hero-wpp {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 9px;
-    padding: 12px 22px;
+    padding: 12px 18px;
     border-radius: var(--radius-md);
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: #ffffff !important;
@@ -903,6 +994,7 @@ img {
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .btn-hero-wpp .hero-wpp-svg {
@@ -921,19 +1013,63 @@ img {
     transform: scale(1.1);
 }
 
+/* Hero Action Buttons - Destaque Sorteio Gamer */
+.btn-hero-sorteio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, #ff5500 0%, #ff2200 100%);
+    color: #ffffff !important;
+    font-family: var(--font-title);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(255, 85, 0, 0.4);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.btn-hero-sorteio i,
+.btn-hero-sorteio svg {
+    color: #ffffff;
+    stroke: #ffffff;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.btn-hero-sorteio:hover {
+    background: linear-gradient(135deg, #ff6a1a 0%, #ff3b1a 100%);
+    box-shadow: 0 6px 28px rgba(255, 85, 0, 0.6);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}
+
+.btn-hero-sorteio:hover i,
+.btn-hero-sorteio:hover svg {
+    transform: scale(1.1);
+}
+
+/* Hero Action Buttons - Instagram Outline/Glassmorphism */
 .btn-hero-insta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 20px;
+    padding: 10px 16px;
     border-radius: var(--radius-md);
     background: rgba(225, 48, 108, 0.09);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: #ffffff !important;
     font-family: var(--font-title);
-    font-size: 0.86rem;
+    font-size: 0.84rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -942,6 +1078,7 @@ img {
     box-shadow: 0 4px 15px rgba(225, 48, 108, 0.2);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .btn-hero-insta .hero-insta-svg {
@@ -960,6 +1097,49 @@ img {
 
 .btn-hero-insta:hover .hero-insta-svg {
     stroke: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Hero Action Buttons - Grupo VIP WhatsApp Outline/Glassmorphism */
+.btn-hero-vip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    background: rgba(37, 211, 102, 0.09);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff !important;
+    font-family: var(--font-title);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border: 1px solid rgba(37, 211, 102, 0.45);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.btn-hero-vip .hero-vip-wpp-svg {
+    fill: #25D366;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.btn-hero-vip:hover {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.22) 0%, rgba(18, 140, 126, 0.3) 100%);
+    border-color: #25D366;
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}
+
+.btn-hero-vip:hover .hero-vip-wpp-svg {
     transform: scale(1.1);
 }
 
@@ -2303,6 +2483,41 @@ img {
     flex-shrink: 0;
 }
 
+/* Footer VIP Group Button */
+.footer-vip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(22, 163, 74, 0.08));
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #22c55e;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    width: fit-content;
+    box-sizing: border-box;
+}
+
+.footer-vip-btn:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(22, 163, 74, 0.15));
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.25);
+    transform: translateY(-1px);
+    color: #22c55e;
+}
+
+.footer-vip-btn svg,
+.footer-vip-btn i {
+    width: 18px;
+    height: 18px;
+    color: #22c55e;
+    fill: #22c55e;
+    flex-shrink: 0;
+}
+
 /* --- Seção Meio: Pagamento + Segurança --- */
 .footer-badges-section {
     max-width: 1200px;
@@ -2482,6 +2697,18 @@ img {
         display: none !important;
     }
 
+    .header-vip-btn {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        padding: 0 !important;
+        justify-content: center !important;
+    }
+
+    .header-vip-btn .header-vip-text {
+        display: none !important;
+    }
+
     .header-cta {
         display: inline-flex !important;
         align-items: center !important;
@@ -2583,40 +2810,44 @@ img {
         font-size: 0.7rem;
     }
 
-    .slide-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        width: 100%;
+    .slide-actions.hero-actions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+        margin-top: 6px !important;
     }
 
-    .btn-hero-wpp {
-        width: 100%;
-        flex: 1 1 100%;
-        padding: 11px 16px;
-        font-size: 0.82rem;
-        min-height: 44px;
-        order: 1;
+    .hero-actions-row {
+        display: flex !important;
+        gap: 8px !important;
+        width: 100% !important;
     }
 
-    .btn-hero-insta {
-        flex: 1 1 calc(50% - 4px);
-        width: auto;
-        padding: 9px 8px;
-        font-size: 0.72rem;
-        min-height: 38px;
-        order: 2;
-        gap: 6px;
+    .hero-row-primary .btn-hero-wpp,
+    .hero-row-primary .btn-hero-sorteio {
+        flex: 1 1 calc(50% - 4px) !important;
+        min-height: 42px !important;
+        padding: 10px 6px !important;
+        font-size: 0.74rem !important;
+        letter-spacing: 0.02em !important;
+        gap: 6px !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+        justify-content: center !important;
     }
 
-    .btn-hero-vitrine {
-        flex: 1 1 calc(50% - 4px);
-        width: auto;
-        padding: 9px 8px;
-        font-size: 0.72rem;
-        min-height: 38px;
-        order: 3;
-        gap: 6px;
+    .hero-row-secondary .btn-hero-insta,
+    .hero-row-secondary .btn-hero-vip {
+        flex: 1 1 calc(50% - 4px) !important;
+        min-height: 38px !important;
+        padding: 8px 6px !important;
+        font-size: 0.71rem !important;
+        letter-spacing: 0.02em !important;
+        gap: 5px !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+        justify-content: center !important;
     }
 
     /* Quick Departments Mobile (Denser & Circular) */
@@ -2903,19 +3134,41 @@ img {
         min-height: 340px;
     }
 
-    .slide-actions {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 14px;
-        align-items: center;
-        margin-top: 6px;
+    .slide-actions.hero-actions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+        max-width: 540px !important;
+        align-items: flex-start !important;
+        margin-top: 10px !important;
+    }
+
+    .hero-actions-row {
+        display: flex !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .hero-row-primary .btn-hero-wpp,
+    .hero-row-primary .btn-hero-sorteio {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        justify-content: center !important;
+    }
+
+    .hero-row-secondary .btn-hero-insta,
+    .hero-row-secondary .btn-hero-vip {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        justify-content: center !important;
     }
 
     .btn-hero-wpp,
+    .btn-hero-sorteio,
     .btn-hero-insta,
+    .btn-hero-vip,
     .btn-hero-vitrine {
-        flex: 0 1 auto;
-        width: auto;
         white-space: nowrap;
     }
     
@@ -3592,6 +3845,18 @@ img {
     }
 
     .header-insta-btn .header-insta-text {
+        display: none !important;
+    }
+
+    .header-vip-btn {
+        padding: 0 !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        justify-content: center !important;
+    }
+
+    .header-vip-btn .header-vip-text {
         display: none !important;
     }
 
