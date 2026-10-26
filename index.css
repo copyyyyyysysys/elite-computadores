@@ -457,61 +457,6 @@ img {
     stroke: #ffffff;
 }
 
-/* Header VIP Group Button */
-.header-vip-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 36px;
-    padding: 0 12px;
-    border-radius: var(--radius-md);
-    background: rgba(34, 197, 94, 0.08);
-    border: 1px solid rgba(34, 197, 94, 0.35);
-    color: var(--text-main);
-    font-family: var(--font-title);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    transition: var(--transition-fast);
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.header-vip-btn .header-vip-icon {
-    width: 17px;
-    height: 17px;
-    fill: #22c55e;
-    transition: var(--transition-fast);
-    flex-shrink: 0;
-}
-
-.header-vip-btn:hover {
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.18) 0%, rgba(18, 140, 126, 0.25) 100%);
-    border-color: #22c55e;
-    color: #15803d;
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.35);
-    transform: translateY(-1px);
-}
-
-.header-vip-btn:hover .header-vip-icon {
-    transform: scale(1.1);
-}
-
-.header-nav-vip-link {
-    color: #16a34a !important;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.header-nav-vip-link:hover {
-    color: #22c55e !important;
-    text-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
-}
-
 /* Header WhatsApp CTA - Green Focus */
 .header-wpp-cta {
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
@@ -926,22 +871,22 @@ img {
     flex-wrap: wrap;
 }
 
-/* Hero Actions - Cohesive CSS Grid Layout */
+/* Hero Actions - Cohesive Flex Layout */
 .slide-actions.hero-actions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
     width: 100%;
-    max-width: 520px;
+    max-width: 600px;
     height: auto;
-    margin-top: 12px;
+    margin-top: 14px;
 }
 
 .hero-actions-grid .btn-hero-wpp,
 .hero-actions-grid .btn-hero-sorteio,
-.hero-actions-grid .btn-hero-insta,
-.hero-actions-grid .btn-hero-vip {
-    width: 100%;
+.hero-actions-grid .btn-hero-insta {
+    flex: 0 0 auto;
     min-width: 0;
     box-sizing: border-box;
     display: inline-flex;
@@ -1092,49 +1037,6 @@ img {
 
 .btn-hero-insta:hover .hero-insta-svg {
     stroke: #ffffff;
-    transform: scale(1.1);
-}
-
-/* Hero Action Buttons - Grupo VIP WhatsApp Outline/Glassmorphism */
-.btn-hero-vip {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    background: rgba(37, 211, 102, 0.09);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #ffffff !important;
-    font-family: var(--font-title);
-    font-size: 0.84rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    border: 1px solid rgba(37, 211, 102, 0.45);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-sizing: border-box;
-    white-space: nowrap;
-}
-
-.btn-hero-vip .hero-vip-wpp-svg {
-    fill: #25D366;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.btn-hero-vip:hover {
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.22) 0%, rgba(18, 140, 126, 0.3) 100%);
-    border-color: #25D366;
-    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
-    transform: translateY(-2px);
-    color: #ffffff !important;
-}
-
-.btn-hero-vip:hover .hero-vip-wpp-svg {
     transform: scale(1.1);
 }
 
@@ -2483,43 +2385,6 @@ img {
     flex-shrink: 0 !important;
 }
 
-/* Footer VIP Group Button */
-.footer-vip-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.05));
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    padding: 10px 18px;
-    border-radius: var(--radius-md);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #22c55e;
-    transition: var(--transition-smooth);
-    text-decoration: none;
-    width: fit-content;
-    box-sizing: border-box;
-}
-
-.footer-vip-btn:hover {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(22, 163, 74, 0.1));
-    border-color: #22c55e;
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
-    transform: translateY(-1px);
-    color: #22c55e;
-}
-
-.footer-vip-btn svg,
-.footer-vip-btn i {
-    width: 20px !important;
-    height: 20px !important;
-    max-width: 20px !important;
-    max-height: 20px !important;
-    color: #22c55e;
-    fill: #22c55e;
-    flex-shrink: 0 !important;
-}
-
 /* --- Seção Meio: Pagamento + Segurança --- */
 .footer-badges-section {
     max-width: 1200px;
@@ -2699,18 +2564,6 @@ img {
         display: none !important;
     }
 
-    .header-vip-btn {
-        width: 36px !important;
-        height: 36px !important;
-        min-width: 36px !important;
-        padding: 0 !important;
-        justify-content: center !important;
-    }
-
-    .header-vip-btn .header-vip-text {
-        display: none !important;
-    }
-
     .header-cta {
         display: inline-flex !important;
         align-items: center !important;
@@ -2835,46 +2688,35 @@ img {
         justify-content: center !important;
     }
 
-    /* Linha 2: Sorteio PC Gamer - 100% largura */
+    /* Linha 2: Sorteio PC Gamer e Instagram - Lado a lado 50% / 50% */
     .hero-actions-grid .btn-hero-sorteio {
-        grid-column: 1 / -1 !important;
-        width: 100% !important;
-        min-height: 42px !important;
-        height: 42px !important;
-        padding: 10px 14px !important;
-        font-size: 0.8rem !important;
-        letter-spacing: 0.03em !important;
-        white-space: nowrap !important;
-        justify-content: center !important;
-    }
-
-    /* Linha 3: Instagram e Grupo VIP - Lado a lado 50% / 50% */
-    .hero-actions-grid .btn-hero-insta {
         grid-column: 1 / 2 !important;
         width: 100% !important;
-        min-height: 38px !important;
-        height: 38px !important;
-        padding: 8px 8px !important;
-        font-size: 0.74rem !important;
+        min-height: 40px !important;
+        height: 40px !important;
+        padding: 8px 10px !important;
+        font-size: 0.76rem !important;
+        letter-spacing: 0.02em !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         justify-content: center !important;
-        gap: 5px !important;
+        gap: 6px !important;
     }
 
-    .hero-actions-grid .btn-hero-vip {
+    .hero-actions-grid .btn-hero-insta {
         grid-column: 2 / 3 !important;
         width: 100% !important;
-        min-height: 38px !important;
-        height: 38px !important;
-        padding: 8px 8px !important;
-        font-size: 0.74rem !important;
+        min-height: 40px !important;
+        height: 40px !important;
+        padding: 8px 10px !important;
+        font-size: 0.76rem !important;
+        letter-spacing: 0.02em !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         justify-content: center !important;
-        gap: 5px !important;
+        gap: 6px !important;
     }
 
     .hero-btn-text-desk {
@@ -3170,20 +3012,20 @@ img {
     }
 
     .slide-actions.hero-actions-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
         gap: 12px !important;
+        align-items: center !important;
         width: 100% !important;
-        max-width: 520px !important;
+        max-width: 580px !important;
         height: auto !important;
-        margin-top: 12px !important;
+        margin-top: 14px !important;
     }
 
     .hero-actions-grid .btn-hero-wpp,
     .hero-actions-grid .btn-hero-sorteio,
-    .hero-actions-grid .btn-hero-insta,
-    .hero-actions-grid .btn-hero-vip {
-        width: 100% !important;
+    .hero-actions-grid .btn-hero-insta {
+        width: auto !important;
         min-width: 0 !important;
         justify-content: center !important;
     }
@@ -3869,18 +3711,6 @@ img {
     }
 
     .header-insta-btn .header-insta-text {
-        display: none !important;
-    }
-
-    .header-vip-btn {
-        padding: 0 !important;
-        width: 36px !important;
-        height: 36px !important;
-        min-width: 36px !important;
-        justify-content: center !important;
-    }
-
-    .header-vip-btn .header-vip-text {
         display: none !important;
     }
 
