@@ -414,49 +414,6 @@ img {
     justify-content: center;
 }
 
-/* Header Instagram Button */
-.header-insta-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    height: 36px;
-    padding: 0 12px;
-    border-radius: var(--radius-md);
-    background: rgba(225, 48, 108, 0.08);
-    border: 1px solid rgba(225, 48, 108, 0.35);
-    color: var(--text-main);
-    font-family: var(--font-title);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    transition: var(--transition-fast);
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.header-insta-btn svg {
-    width: 17px;
-    height: 17px;
-    stroke: #e1306c;
-    transition: var(--transition-fast);
-    flex-shrink: 0;
-}
-
-.header-insta-btn:hover {
-    background: linear-gradient(45deg, rgba(240, 148, 51, 0.2) 0%, rgba(225, 48, 108, 0.28) 100%);
-    border-color: #e1306c;
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(225, 48, 108, 0.4);
-    transform: translateY(-1px);
-}
-
-.header-insta-btn:hover svg {
-    stroke: #ffffff;
-}
-
 /* Header WhatsApp CTA - Green Focus */
 .header-wpp-cta {
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
@@ -871,23 +828,25 @@ img {
     flex-wrap: wrap;
 }
 
-/* Hero Actions - Cohesive Flex Layout */
+/* Hero Actions - Symmetrical Two-Button Layout */
 .slide-actions.hero-actions-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 520px;
     height: auto;
-    margin-top: 14px;
+    margin-top: 16px;
 }
 
 .hero-actions-grid .btn-hero-wpp,
-.hero-actions-grid .btn-hero-sorteio,
-.hero-actions-grid .btn-hero-insta {
-    flex: 0 0 auto;
+.hero-actions-grid .btn-hero-sorteio {
+    flex: 1 1 200px;
     min-width: 0;
+    max-width: 250px;
+    min-height: 48px;
+    height: 48px;
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
@@ -993,50 +952,6 @@ img {
 
 .btn-hero-sorteio:hover i,
 .btn-hero-sorteio:hover svg {
-    transform: scale(1.1);
-}
-
-/* Hero Action Buttons - Instagram Outline/Glassmorphism */
-.btn-hero-insta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    background: rgba(225, 48, 108, 0.09);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: #ffffff !important;
-    font-family: var(--font-title);
-    font-size: 0.84rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    border: 1px solid rgba(225, 48, 108, 0.45);
-    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.2);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-sizing: border-box;
-    white-space: nowrap;
-}
-
-.btn-hero-insta .hero-insta-svg {
-    stroke: #e1306c;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.btn-hero-insta:hover {
-    background: linear-gradient(45deg, rgba(240, 148, 51, 0.25) 0%, rgba(225, 48, 108, 0.35) 100%);
-    border-color: #e1306c;
-    box-shadow: 0 6px 22px rgba(225, 48, 108, 0.45);
-    transform: translateY(-2px);
-    color: #ffffff !important;
-}
-
-.btn-hero-insta:hover .hero-insta-svg {
-    stroke: #ffffff;
     transform: scale(1.1);
 }
 
@@ -2352,39 +2267,6 @@ img {
     flex-shrink: 0 !important;
 }
 
-.footer-insta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(225, 48, 108, 0.05));
-    border: 1px solid rgba(225, 48, 108, 0.3);
-    padding: 10px 18px;
-    border-radius: var(--radius-md);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #e1306c;
-    transition: var(--transition-smooth);
-    text-decoration: none;
-    width: fit-content;
-}
-
-.footer-insta-btn:hover {
-    background: linear-gradient(135deg, rgba(225, 48, 108, 0.25), rgba(225, 48, 108, 0.1));
-    border-color: #e1306c;
-    box-shadow: 0 0 15px rgba(225, 48, 108, 0.2);
-}
-
-.footer-insta-btn svg,
-.footer-insta-btn i {
-    width: 20px !important;
-    height: 20px !important;
-    max-width: 20px !important;
-    max-height: 20px !important;
-    color: #e1306c;
-    stroke: #e1306c;
-    flex-shrink: 0 !important;
-}
-
 /* --- Seção Meio: Pagamento + Segurança --- */
 .footer-badges-section {
     max-width: 1200px;
@@ -2552,18 +2434,6 @@ img {
         box-sizing: border-box !important;
     }
 
-    .header-insta-btn {
-        width: 36px !important;
-        height: 36px !important;
-        min-width: 36px !important;
-        padding: 0 !important;
-        justify-content: center !important;
-    }
-
-    .header-insta-btn .header-insta-text {
-        display: none !important;
-    }
-
     .header-cta {
         display: inline-flex !important;
         align-items: center !important;
@@ -2666,65 +2536,48 @@ img {
     }
 
     .slide-actions.hero-actions-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 8px !important;
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        margin-top: 8px !important;
+        margin-top: 10px !important;
     }
 
-    /* Linha 1: Falar com Especialista - 100% largura */
-    .hero-actions-grid .btn-hero-wpp {
-        grid-column: 1 / -1 !important;
+    .hero-actions-grid .btn-hero-wpp,
+    .hero-actions-grid .btn-hero-sorteio {
         width: 100% !important;
-        min-height: 44px !important;
-        height: 44px !important;
+        max-width: 100% !important;
+        min-height: 42px !important;
+        height: 42px !important;
         padding: 10px 14px !important;
         font-size: 0.82rem !important;
         letter-spacing: 0.03em !important;
         white-space: nowrap !important;
         justify-content: center !important;
+        box-sizing: border-box !important;
     }
 
-    /* Linha 2: Sorteio PC Gamer e Instagram - Lado a lado 50% / 50% */
-    .hero-actions-grid .btn-hero-sorteio {
-        grid-column: 1 / 2 !important;
-        width: 100% !important;
-        min-height: 40px !important;
-        height: 40px !important;
-        padding: 8px 10px !important;
-        font-size: 0.76rem !important;
-        letter-spacing: 0.02em !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        justify-content: center !important;
-        gap: 6px !important;
-    }
+    @media (min-width: 480px) and (max-width: 768px) {
+        .slide-actions.hero-actions-grid {
+            flex-direction: row !important;
+            gap: 10px !important;
+        }
 
-    .hero-actions-grid .btn-hero-insta {
-        grid-column: 2 / 3 !important;
-        width: 100% !important;
-        min-height: 40px !important;
-        height: 40px !important;
-        padding: 8px 10px !important;
-        font-size: 0.76rem !important;
-        letter-spacing: 0.02em !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        justify-content: center !important;
-        gap: 6px !important;
+        .hero-actions-grid .btn-hero-wpp,
+        .hero-actions-grid .btn-hero-sorteio {
+            flex: 1 1 0 !important;
+            width: 100% !important;
+        }
     }
 
     .hero-btn-text-desk {
-        display: none !important;
+        display: inline !important;
     }
 
     .hero-btn-text-mob {
-        display: inline !important;
+        display: none !important;
     }
 
     /* Quick Departments Mobile (Denser & Circular) */
@@ -3014,19 +2867,20 @@ img {
     .slide-actions.hero-actions-grid {
         display: flex !important;
         flex-wrap: wrap !important;
-        gap: 12px !important;
+        gap: 14px !important;
         align-items: center !important;
         width: 100% !important;
-        max-width: 580px !important;
+        max-width: 520px !important;
         height: auto !important;
-        margin-top: 14px !important;
+        margin-top: 16px !important;
     }
 
     .hero-actions-grid .btn-hero-wpp,
-    .hero-actions-grid .btn-hero-sorteio,
-    .hero-actions-grid .btn-hero-insta {
-        width: auto !important;
-        min-width: 0 !important;
+    .hero-actions-grid .btn-hero-sorteio {
+        flex: 1 1 200px !important;
+        max-width: 250px !important;
+        min-height: 48px !important;
+        height: 48px !important;
         justify-content: center !important;
     }
 
@@ -3700,18 +3554,6 @@ img {
         height: 36px;
         min-width: 36px;
         justify-content: center;
-    }
-
-    .header-insta-btn {
-        padding: 0 !important;
-        width: 36px !important;
-        height: 36px !important;
-        min-width: 36px !important;
-        justify-content: center !important;
-    }
-
-    .header-insta-btn .header-insta-text {
-        display: none !important;
     }
 
     .header-actions {
