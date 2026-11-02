@@ -842,11 +842,12 @@ img {
 
 .hero-actions-grid .btn-hero-wpp,
 .hero-actions-grid .btn-hero-sorteio {
-    flex: 1 1 200px;
-    min-width: 0;
-    max-width: 250px;
-    min-height: 48px;
+    flex: 0 0 auto;
+    min-width: 180px;
     height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    padding: 0 20px;
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
@@ -2547,29 +2548,20 @@ img {
 
     .hero-actions-grid .btn-hero-wpp,
     .hero-actions-grid .btn-hero-sorteio {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: none !important;
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 42px !important;
-        height: 42px !important;
-        padding: 10px 14px !important;
+        height: 46px !important;
+        min-height: 46px !important;
+        max-height: 46px !important;
+        padding: 0 16px !important;
         font-size: 0.82rem !important;
         letter-spacing: 0.03em !important;
         white-space: nowrap !important;
-        justify-content: center !important;
         box-sizing: border-box !important;
-    }
-
-    @media (min-width: 480px) and (max-width: 768px) {
-        .slide-actions.hero-actions-grid {
-            flex-direction: row !important;
-            gap: 10px !important;
-        }
-
-        .hero-actions-grid .btn-hero-wpp,
-        .hero-actions-grid .btn-hero-sorteio {
-            flex: 1 1 0 !important;
-            width: 100% !important;
-        }
     }
 
     .hero-btn-text-desk {
@@ -2834,6 +2826,23 @@ img {
     .slide-title {
         font-size: 2rem;
     }
+
+    .slide-actions.hero-actions-grid {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+    }
+
+    .hero-actions-grid .btn-hero-wpp,
+    .hero-actions-grid .btn-hero-sorteio {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        height: 46px !important;
+        min-height: 46px !important;
+        max-height: 46px !important;
+        padding: 0 14px !important;
+    }
 }
 
 @media (min-width: 768px) {
@@ -2866,6 +2875,7 @@ img {
 
     .slide-actions.hero-actions-grid {
         display: flex !important;
+        flex-direction: row !important;
         flex-wrap: wrap !important;
         gap: 14px !important;
         align-items: center !important;
@@ -2877,10 +2887,14 @@ img {
 
     .hero-actions-grid .btn-hero-wpp,
     .hero-actions-grid .btn-hero-sorteio {
-        flex: 1 1 200px !important;
+        flex: 0 0 auto !important;
+        min-width: 180px !important;
+        width: auto !important;
         max-width: 250px !important;
-        min-height: 48px !important;
         height: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        padding: 0 20px !important;
         justify-content: center !important;
     }
 
